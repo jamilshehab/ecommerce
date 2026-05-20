@@ -71,7 +71,7 @@ export default function SubscribePopup() {
           {/* Close button */}
           <button
             onClick={closeModal}
-            className="absolute top-5 right-5 text-gray-500 hover:text-black transition"
+            className="absolute cursor-pointer top-5 right-5 text-gray-500 hover:text-black transition"
           >
             ✕
           </button>
@@ -103,7 +103,7 @@ export default function SubscribePopup() {
             <button
               type="submit"
               disabled={loading}
-              className="bg-black text-white py-4 rounded-xl hover:opacity-90 transition disabled:opacity-50"
+              className="bg-black cursor-pointer text-white py-4 rounded-xl hover:opacity-90 transition disabled:opacity-50"
             >
               {loading ? "Joining..." : "Join the Ritual"}
             </button>
