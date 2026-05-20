@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #ffffff;
+  --color-text: #171717;
+  --color-primary: #000000;
+  --color-secondary: #f3ebe8;
+  --color-bg-dark: #0a0a0a;
+  --color-text-dark: #ededed;
+
+  --font-sans: var(--font-montserrat);
+}
+
+/* ONLY global typography + base reset */
+body {
+  @apply text-[var(--color-text)] antialiased;
+  font-family: var(--font-sans), sans-serif;
+}
+
+/* optional dark text support only */
+@media (prefers-color-scheme: dark) {
+  body {
+    color: var(--color-text-dark);
+  }
+}
+
+/**/
+.rain-container {
+  position: fixed;
+  inset: 0;
+  background: black;
+  overflow: hidden;
+}
+
+.rain-drop {
+  position: absolute;
+  top: -20px;
+  color: rgb(229, 223, 223);
+  width: 1px;
+  height: 18px;
+  background: white;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(120vh);
+  }
+}
+
+.center-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  opacity: 0.4;
+  font-size: 18px;
+  letter-spacing: 0.2em;
+}
+
+.custom-bullet {
+  width: 30px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.4);
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.swiper-pagination-bullet-active.custom-bullet {
+  background: white;
+  width: 50px;
+}

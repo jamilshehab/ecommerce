@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_sections_sliders",
+  "info": {
+    "displayName": "Slider"
+  },
+  "options": {},
+  "attributes": {
+    "Slide": {
+      "type": "component",
+      "component": "slides.slide",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}
