@@ -45,7 +45,9 @@ const CartDrawer = () => {
         <div className="flex items-center justify-between border-b p-4">
           <h2 className="text-lg font-semibold">Your Cart</h2>
 
-          <button onClick={closeCart}>✕</button>
+          <button className="cursor-pointer" onClick={closeCart}>
+            ✕
+          </button>
         </div>
 
         {/* items */}

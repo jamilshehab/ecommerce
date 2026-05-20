@@ -1,7 +1,8 @@
 "use client";
 
 import { useCheckout } from "@/app/hooks/useCheckout";
-
+import PhoneInput from "react-phone-number-input";
+import "react-phone-number-input/style.css";
 export default function CheckoutSection() {
   const {
     cart,
@@ -46,12 +47,16 @@ export default function CheckoutSection() {
               onChange={(e) => setForm({ ...form, email: e.target.value })}
             />
 
-            <input
-              placeholder="Phone Number *"
-              className="w-full border border-slate-300 rounded-xl p-3 outline-none focus:border-black"
-              value={form.phone}
-              onChange={(e) => setForm({ ...form, phone: e.target.value })}
-            />
+            <div className="w-full border border-slate-300 rounded-xl p-3 focus-within:border-black">
+              <PhoneInput
+                international
+                defaultCountry="LB"
+                placeholder="Phone Number *"
+                value={form.phone}
+                onChange={(value) => setForm({ ...form, phone: value || "" })}
+                className="w-full"
+              />
+            </div>
 
             <textarea
               placeholder="Delivery Address *"
@@ -80,7 +85,7 @@ export default function CheckoutSection() {
           <button
             onClick={handleSubmit}
             disabled={loading}
-            className="w-full bg-black text-white py-3 rounded-xl font-medium hover:bg-neutral-900 transition disabled:opacity-50"
+            className="w-full cursor-pointer bg-black text-white py-3 rounded-xl font-medium hover:bg-neutral-900 transition disabled:opacity-50"
           >
             {loading ? "Processing..." : "Place Order (Cash on Delivery)"}
           </button>

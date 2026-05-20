@@ -109,14 +109,14 @@ export default function CartSection() {
 
           <Link
             href="/checkout"
-            className="mt-6 block text-center rounded-xl bg-black py-3 text-white"
+            className="mt-6 block text-center cursor-pointer rounded-xl bg-black py-3 text-white"
           >
             Proceed to Checkout
           </Link>
 
           <Link
             href="/"
-            className="mt-3 block text-center text-sm text-gray-500"
+            className="mt-3 block text-center cursor-pointer text-sm text-gray-500"
           >
             Continue Shopping
           </Link>

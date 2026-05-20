@@ -75,3 +75,21 @@ body {
   background: white;
   width: 50px;
 }
+
+.PhoneInputInput {
+  outline: none;
+  border: none;
+  box-shadow: none;
+  background: transparent;
+}
+
+.PhoneInputInput:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.PhoneInputCountrySelect {
+  outline: none;
+  border: none;
+  background: transparent;
+}

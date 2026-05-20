@@ -3,12 +3,7 @@
 import { useCartStore } from "@/app/lib/zustand/zustand";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import {
-  FiSearch,
-  FiShoppingBag,
-  FiMenu,
-  FiX,
-} from "react-icons/fi";
+import { FiSearch, FiShoppingBag, FiMenu, FiX } from "react-icons/fi";
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -16,10 +11,7 @@ const Header = () => {
 
   const { cart, openCart } = useCartStore();
 
-  const totalItems = cart.reduce(
-    (sum, item) => sum + item.quantity,
-    0,
-  );
+  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,7 +33,6 @@ const Header = () => {
     >
       {/* TOP BAR */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 sm:h-20 grid grid-cols-3 items-center">
-        
         {/* LEFT NAV DESKTOP */}
         <nav className="hidden md:flex items-center gap-8 text-sm text-gray-800 justify-start">
           <Link href="/" className="hover:opacity-60 transition">
@@ -52,9 +43,9 @@ const Header = () => {
             Shop
           </Link>
 
-          <Link href="/about" className="hover:opacity-60 transition">
+          {/* <Link href="/about" className="hover:opacity-60 transition">
             About
-          </Link>
+          </Link> */}
         </nav>
 
         {/* MOBILE MENU BUTTON */}
