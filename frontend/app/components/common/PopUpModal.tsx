@@ -2,25 +2,50 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { createSubscribe } from "@/app/lib/services/subscribe";
 
 export default function SubscribePopup() {
   const [open, setOpen] = useState(false);
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       setOpen(true);
     }, 1200);
+
+    return () => clearTimeout(timer);
   }, []);
 
-  const closeModal = () => {
-    setOpen(false);
+  const closeModal = () => setOpen(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!email) return alert("Email is required");
+
+    try {
+      setLoading(true);
+
+      await createSubscribe(email);
+
+      alert("Subscribed successfully 🎉");
+
+      setEmail("");
+      setOpen(false);
+    } catch (err) {
+      console.error("Subscribe Error:", err);
+      alert("Subscription failed");
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (!open) return null;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center">
-      {/* Soft luxury blur background */}
+      {/* Overlay */}
       <div
         className="absolute inset-0 bg-black/40 backdrop-blur-md"
         onClick={closeModal}
@@ -38,26 +63,24 @@ export default function SubscribePopup() {
             className="h-full w-full object-cover"
           />
 
-          {/* soft overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
         </div>
 
         {/* Content Side */}
         <div className="p-8 md:p-12 relative">
-          {/* close */}
+          {/* Close button */}
           <button
             onClick={closeModal}
-            className="absolute top-5 right-5 cursor-pointer text-gray-500 hover:text-black transition"
+            className="absolute top-5 right-5 text-gray-500 hover:text-black transition"
           >
             ✕
           </button>
 
-          {/* brand label */}
+          {/* Text */}
           <p className="text-xs tracking-[0.3em] uppercase text-gray-500">
             Skincare Rituals
           </p>
 
-          {/* headline */}
           <h2 className="text-3xl md:text-4xl font-light mt-3 leading-tight">
             Elevate your skincare ritual
           </h2>
@@ -67,23 +90,26 @@ export default function SubscribePopup() {
             early access to drops, and private offers crafted for radiant skin.
           </p>
 
-          {/* form */}
-          <form className="mt-8 flex flex-col gap-3">
+          {/* Form */}
+          <form onSubmit={handleSubmit} className="mt-8 flex flex-col gap-3">
             <input
               type="email"
               placeholder="Enter your email address"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               className="border border-gray-200 bg-white/70 p-4 rounded-xl outline-none focus:ring-1 focus:ring-black transition"
             />
 
             <button
               type="submit"
-              className="bg-black cursor-pointer text-white py-4 rounded-xl hover:opacity-90 transition"
+              disabled={loading}
+              className="bg-black text-white py-4 rounded-xl hover:opacity-90 transition disabled:opacity-50"
             >
-              Join the Ritual
+              {loading ? "Joining..." : "Join the Ritual"}
             </button>
           </form>
 
-          {/* footer note */}
+          {/* Footer */}
           <p className="text-xs text-gray-400 mt-5">
             No spam. Only skincare refinement.
           </p>
