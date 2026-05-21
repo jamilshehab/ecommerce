@@ -1,4 +1,4 @@
-import { API_URL, fetchAPI } from "../API";
+import { fetchAPI } from "../API";
 
 type CategoryResponse = {
   data: any[];

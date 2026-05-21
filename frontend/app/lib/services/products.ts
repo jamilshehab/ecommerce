@@ -1,4 +1,4 @@
-import { API_URL, fetchAPI } from "../API";
+import { fetchAPI } from "../API";
 
 export async function getFeaturedProducts(limit = 3) {
   const data = await fetchAPI<any>(

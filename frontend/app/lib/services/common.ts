@@ -1,6 +1,11 @@
-import { API_URL } from "../API";
+const API_URL = process.env.NEXT_PUBLIC_STRAPI_URL;
 
 export function getStrapiImage(path?: string) {
   if (!path) return "/placeholder.jpg";
-  return `${API_URL}${path}`;
+
+  if (path.startsWith("http")) return path;
+
+  if (!API_URL) return "/placeholder.jpg";
+
+  return new URL(path, API_URL).toString();
 }

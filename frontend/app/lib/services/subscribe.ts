@@ -1,12 +1,20 @@
-import { API_URL, fetchAPI } from "../API";
-
 export async function createSubscribe(email: string) {
-  return fetchAPI("/api/subscribes", {
-    method: "POST",
-    body: JSON.stringify({
-      data: {
-        email,
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/subscribes`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
       },
-    }),
-  });
+      body: JSON.stringify({
+        data: { email },
+      }),
+    },
+  );
+
+  if (!res.ok) {
+    throw new Error("Subscribe failed");
+  }
+
+  return res.json();
 }
