@@ -81,7 +81,7 @@ export function useCheckout() {
       resetForm();
 
       const message = `
-🛒 New Order #${order?.data?.id || order?.id || ""}
+🛒 New Order #${order?.data?.id ?? ""}
 
 Name: ${form.name}
 Phone: ${form.phone}

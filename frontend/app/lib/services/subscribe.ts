@@ -1,21 +1,12 @@
-import { API_URL } from "../API";
+import { API_URL, fetchAPI } from "../API";
 
-export const createSubscribe = async (email: string) => {
-  const res = await fetch(`${API_URL}/api/subscribes`, {
+export async function createSubscribe(email: string) {
+  return fetchAPI("/api/subscribes", {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
     body: JSON.stringify({
       data: {
         email,
       },
     }),
   });
-
-  if (!res.ok) {
-    throw new Error("Failed to subscribe");
-  }
-
-  return res.json();
-};
+}

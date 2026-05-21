@@ -1,17 +1,13 @@
-import { API_URL } from "../API";
+import { API_URL, fetchAPI } from "../API";
 
 export async function getFeaturedProducts(limit = 3) {
-  const res = await fetch(
-    `${API_URL}/api/products` +
-      `?filters[isFeatured][$eq]=true` +
-      `&populate[main_image]=true` +
-      `&populate[category]=true` +
-      `&pagination[limit]=${limit}` +
-      `&sort=createdAt:desc`,
-    { next: { revalidate: 60 } },
+  const data = await fetchAPI<any>(
+    `/api/products?filters[isFeatured][$eq]=true&populate[main_image]=true&populate[category]=true&pagination[limit]=${limit}&sort=createdAt:desc`,
+    {
+      next: { revalidate: 60 },
+    },
   );
 
-  const data = await res.json();
   return data.data;
 }
 
@@ -29,11 +25,9 @@ export async function getProductsByCategory(
     populate: "*",
   });
 
-  const res = await fetch(`${API_URL}/api/products?${params}`, {
+  const data = await fetchAPI<any>(`/api/products?${params.toString()}`, {
     next: { revalidate: 60 },
   });
-
-  const data = await res.json();
 
   return {
     products: data.data ?? [],
@@ -42,12 +36,12 @@ export async function getProductsByCategory(
 }
 
 export async function getProductBySlug(slug: string) {
-  const res = await fetch(
-    `${API_URL}/api/products?filters[slug][$eq]=${slug}&populate=*`,
-    { next: { revalidate: 60 } },
+  const data = await fetchAPI<any>(
+    `/api/products?filters[slug][$eq]=${slug}&populate=*`,
+    {
+      next: { revalidate: 60 },
+    },
   );
-
-  const data = await res.json();
 
   return data.data?.[0] || null;
 }
