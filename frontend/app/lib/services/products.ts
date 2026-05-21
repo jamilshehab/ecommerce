@@ -1,14 +1,14 @@
 import { fetchAPI } from "../API";
 
 export async function getFeaturedProducts(limit = 3) {
-  const data = await fetchAPI<any>(
-    `/api/products?filters[isFeatured][$eq]=true&populate=main_image&populate=category&pagination[limit]=${limit}&sort=createdAt:desc`,
+  const res = await fetchAPI<any>(
+    `/api/products?filters[isFeatured][$eq]=true&populate[main_image]=true&populate[category]=true&pagination[limit]=${limit}&sort=createdAt:desc`,
     {
       next: { revalidate: 60 },
     },
   );
-  console.log("FEATURED PRODUCTS:", data); // 👈 add this
-  return data.data;
+
+  return res.data;
 }
 
 export async function getProductsByCategory(

@@ -4,6 +4,7 @@ import Link from "next/link";
 
 const FeaturedProducts = async () => {
   const products = await getFeaturedProducts(3);
+  console.log("Featured Products:", products); // Debug log
   return (
     <section className="bg-secondary py-20">
       <ProductsGrid products={products} />
