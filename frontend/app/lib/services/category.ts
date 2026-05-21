@@ -1,11 +1,7 @@
 import { fetchAPI } from "../API";
 
-type CategoryResponse = {
-  data: any[];
-};
-
 export async function getCategories() {
-  const data = await fetchAPI<CategoryResponse>("/api/categories?populate=*", {
+  const data = await fetchAPI<any>("/api/categories?populate=*", {
     next: { revalidate: 60 },
   });
 

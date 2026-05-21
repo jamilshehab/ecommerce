@@ -1,7 +1,6 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { createOrder } from "@/app/lib/services/orders";
 import { useCartStore } from "@/app/lib/zustand/zustand";
 
 export function useCheckout() {
@@ -75,7 +74,19 @@ export function useCheckout() {
         total: Number(total),
       };
 
-      const order = await createOrder(payload);
+      const res = await fetch("/api/orders", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (!res.ok) {
+        throw new Error("Order failed");
+      }
+
+      const order = await res.json();
 
       clearCart();
       resetForm();

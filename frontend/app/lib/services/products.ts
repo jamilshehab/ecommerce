@@ -42,6 +42,6 @@ export async function getProductBySlug(slug: string) {
       next: { revalidate: 60 },
     },
   );
-
+ 
   return data.data?.[0] || null;
 }
