@@ -1,6 +1,10 @@
 export const API_URL = process.env.NEXT_PUBLIC_STRAPI_URL;
 export const API_TOKEN = process.env.STRAPI_API_TOKEN;
 
+if (!API_URL) {
+  throw new Error("NEXT_PUBLIC_STRAPI_URL is not defined");
+}
+
 type FetchOptions = RequestInit & {
   next?: {
     revalidate?: number;
@@ -9,19 +13,22 @@ type FetchOptions = RequestInit & {
 
 export async function fetchAPI<T>(
   endpoint: string,
-  options: RequestInit & { next?: { revalidate?: number } } = {},
+  options: FetchOptions = {},
 ): Promise<T> {
   const { next, ...rest } = options;
 
-  const res = await fetch(`${API_URL}${endpoint}`, {
-    ...rest,
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${API_TOKEN}`,
-      ...(rest.headers || {}),
+  const res = await fetch(
+    `${API_URL}${endpoint.startsWith("/") ? endpoint : "/" + endpoint}`,
+    {
+      ...rest,
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${API_TOKEN}`,
+        ...(rest.headers || {}),
+      },
+      next,
     },
-    next,
-  });
+  );
 
   if (!res.ok) {
     const error = await res.text();
