@@ -10,6 +10,7 @@ import { FaEye, FaShoppingBag } from "react-icons/fa";
 import Link from "next/link";
 import { useCartStore } from "@/app/lib/zustand/zustand";
 import { useState } from "react";
+import Image from "next/image";
 
 const ProductCard = ({ product, onQuickView }: ProductCardProps) => {
   const [quantity, setQuantity] = useState(1);
@@ -18,14 +19,17 @@ const ProductCard = ({ product, onQuickView }: ProductCardProps) => {
 
   const isOutOfStock = stock <= 0;
   const isLowStock = stock > 0 && stock <= 5;
-
+  const imageUrl = product.main_image?.url
+    ? `${process.env.NEXT_PUBLIC_STRAPI_URL}${product.main_image.url}`
+    : "/placeholder.jpg";
   return (
     <motion.div variants={item} className="group relative">
       {/* IMAGE WRAPPER */}
       <Link href={`/shop/${product.category?.slug}/${product.slug}`}>
         <div className="relative aspect-[3/4] overflow-hidden rounded-2xl isolate">
-          <CustomImage
-            src={getStrapiImage(product.main_image?.url)}
+          <Image
+            unoptimized
+            src={imageUrl}
             alt={product.title}
             width={product.main_image?.width || 500}
             height={product.main_image?.height || 500}
