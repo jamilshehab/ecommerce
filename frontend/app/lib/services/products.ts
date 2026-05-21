@@ -7,7 +7,7 @@ export async function getFeaturedProducts(limit = 3) {
       next: { revalidate: 60 },
     },
   );
-
+  console.log("FEATURED PRODUCTS:", data); // 👈 add this
   return data.data;
 }
 
