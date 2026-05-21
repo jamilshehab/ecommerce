@@ -1,9 +1,9 @@
-import Image from "next/image";
+"use client";
 import Link from "next/link";
 import CustomImage from "../common/CustomImage";
 import { getStrapiImage } from "@/app/lib/services/common";
 import { Category } from "@/app/types";
-
+import { motion } from "framer-motion";
 export default function CategoryGrid({
   categories,
 }: {
@@ -11,7 +11,18 @@ export default function CategoryGrid({
 }) {
   return (
     <section className="max-w-6xl mx-auto py-12">
-      
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+        className="text-center mb-20"
+      >
+        <h2 className="text-5xl font-semibold tracking-tight">
+          Shop by Category
+        </h2>
+        <p className="text-gray-500 mt-4 text-lg"></p>
+      </motion.div>
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
         {categories.map((cat: any) => (
           <Link

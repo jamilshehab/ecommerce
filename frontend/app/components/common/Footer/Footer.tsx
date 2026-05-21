@@ -1,44 +1,67 @@
 import Link from "next/link";
 
+const footerLinks = [
+  { label: "Home", href: "/" },
+  { label: "Shop", href: "/shop" },
+  { label: "Contact", href: "/contact" },
+];
+
 export default function Footer() {
   return (
-    <footer className="py-16 px-6 md:px-20 bg-[#111] text-white">
-      <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-10">
+    <footer className="bg-[#111] text-white py-16 px-6 md:px-20">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
         {/* Brand */}
         <div>
-          <h3 className="font-extrabold text-xl tracking-tight">SELF</h3>
-          <p className="text-white/60 mt-4 text-sm">
-            A refined approach to beauty and skincare.
+          <h3 className="text-2xl font-extrabold tracking-tight">SELF</h3>
+
+          <p className="mt-4 text-sm leading-relaxed text-white/60 max-w-xs">
+            A refined approach to beauty and skincare designed to help you
+            explore your natural style with confidence.
           </p>
         </div>
 
-        {/* Links */}
-        <div className="space-y-3 text-sm">
-          <Link href="/shop" className="font-medium">
-            Home
-          </Link>
+        {/* Navigation */}
+        <div>
+          <h4 className="text-sm font-semibold uppercase tracking-wider text-white/80 mb-5">
+            Navigation
+          </h4>
 
-          <Link href="/contact" className="font-medium">
-            Shop
-          </Link>
+          <nav className="flex flex-col gap-3">
+            {footerLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-sm text-white/60 transition-colors duration-200 hover:text-white w-fit"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
         </div>
 
         {/* Contact */}
-        <div className="space-y-3 text-sm">
-          <p className="font-medium">Contact</p>
-          <p className="text-white/60">hello@selfbeauty.com</p>
-          <p className="text-white/60">+961 00 000 000</p>
+        <div>
+          <h4 className="text-sm font-semibold uppercase tracking-wider text-white/80 mb-5">
+            Contact
+          </h4>
+
+          <div className="space-y-3 text-sm">
+            <p className="text-white/60">hello@selfbeauty.com</p>
+
+            <p className="text-white/60">+961 00 000 000</p>
+          </div>
         </div>
       </div>
 
       {/* Bottom */}
-      <div className="text-center text-white/40 text-xs mt-12">
-        © 2026 SELF. All rights reserved. Developed by{" "}
+      <div className="border-t border-white/10 mt-14 pt-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-white/40">
+        <p>© 2026 SELF. All rights reserved.</p>
+
         <Link
           href="mailto:shehabjamil20@gmail.com"
-          className="text-white/60 hover:text-white"
+          className="transition-colors duration-200 hover:text-white"
         >
-          Jamil Shehab
+          Developed by Jamil Shehab
         </Link>
       </div>
     </footer>

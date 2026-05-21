@@ -69,7 +69,7 @@ const Header = () => {
 
         {/* RIGHT ICONS */}
         <div className="flex items-center gap-4 sm:gap-5 text-gray-800 justify-end">
-          <FiSearch className="cursor-pointer hover:opacity-60 transition text-lg" />
+          {/* <FiSearch className="cursor-pointer hover:opacity-60 transition text-lg" /> */}
 
           {/* CART ICON */}
           <button
