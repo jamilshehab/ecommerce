@@ -14,10 +14,13 @@ export default function Footer() {
 
         {/* Links */}
         <div className="space-y-3 text-sm">
-          <p className="font-medium">Explore</p>
-          <p className="text-white/60">Shop</p>
-          <p className="text-white/60">About</p>
-          <p className="text-white/60">Contact</p>
+          <Link href="/shop" className="font-medium">
+            Home
+          </Link>
+
+          <Link href="/contact" className="font-medium">
+            Shop
+          </Link>
         </div>
 
         {/* Contact */}
