@@ -1,0 +1,144 @@
+name: Portal Production
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - "frontend/**"
+
+  workflow_dispatch:
+
+jobs:
+  build_and_deploy_portal:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      actions: read
+
+    steps:
+      # 1️⃣ CHECKOUT
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: "main"
+          fetch-depth: 0 # required for full diff reliability
+
+      # ------------------------------------------------------------------------------------------------------------
+
+      # 2️⃣ DETECT DEPENDENCY CHANGES
+
+      - name: Detect package.json changes
+        id: package_changes
+        run: |
+          echo "Checking for dependency changes..."
+
+          CHANGED_FILES=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }})
+
+          echo "$CHANGED_FILES"
+
+          if echo "$CHANGED_FILES" | grep -E frontend/(package.json|package-lock.json)'; then
+            echo "changed=true" >> $GITHUB_OUTPUT
+          else
+            echo "changed=false" >> $GITHUB_OUTPUT
+          fi
+
+      # ------------------------------------------------------------------------------------------------------------
+
+      # 3️⃣ SETUP SSH
+
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.PRODUCTION_SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+
+          # Disable any ssh-agent interference
+          unset SSH_AUTH_SOCK
+
+          ssh-keyscan -p ${{ secrets.PRODUCTION_SSH_PORT }} ${{ secrets.PRODUCTION_IP }} >> ~/.ssh/known_hosts
+
+      # ------------------------------------------------------------------------------------------------------------
+
+      # 4️⃣ RSYNC DEPLOY
+
+      - name: Deploy via rsync
+        run: |
+          unset SSH_AUTH_SOCK
+
+          rsync -az --delete \
+            --exclude=".env" \
+            --exclude="node_modules" \
+            --exclude=".htaccess" \
+            --exclude="ecosystem.config.cjs" \
+            --exclude=".next" \
+            -e "ssh -p ${{ secrets.PRODUCTION_SSH_PORT }} \
+                  -i ~/.ssh/id_ed25519 \
+                  -o IdentitiesOnly=yes \
+                  -o PreferredAuthentications=publickey \
+                  -o PasswordAuthentication=no \
+                  -o StrictHostKeyChecking=yes" \
+            frontend/ \
+            ${{ secrets.PRODUCTION_SSH_USER }}@${{ secrets.PRODUCTION_IP }}:/home/${{ secrets.PRODUCTION_SSH_USER }}/${{ secrets.PRODUCTION_PORTAL_PATH }}/
+
+      # ------------------------------------------------------------------------------------------------------------
+
+      # 5️⃣ INSTALL (conditional)
+
+      - name: Install dependencies (if needed)
+        if: steps.package_changes.outputs.changed == 'true'
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.PRODUCTION_IP }}
+          port: ${{ secrets.PRODUCTION_SSH_PORT }}
+          username: ${{ secrets.PRODUCTION_SSH_USER }}
+          key: ${{ secrets.PRODUCTION_SSH_PRIVATE_KEY }}
+          script: |
+            set -e
+            cd /home/${{ secrets.PRODUCTION_SSH_USER }}/${{ secrets.PRODUCTION_PORTAL_PATH }}
+
+            echo "📦 Installing dependencies..."
+            npm ci --omit=dev --prefer-offline
+
+      - name: Skip install (no dependency changes)
+        if: steps.package_changes.outputs.changed == 'false'
+        run: echo "✅ No dependency changes, skipping install"
+
+      # ------------------------------------------------------------------------------------------------------------
+
+      # 6️⃣ BUILD
+
+      - name: Build project
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.PRODUCTION_IP }}
+          port: ${{ secrets.PRODUCTION_SSH_PORT }}
+          username: ${{ secrets.PRODUCTION_SSH_USER }}
+          key: ${{ secrets.PRODUCTION_SSH_PRIVATE_KEY }}
+          script: |
+            set -e
+            cd /home/${{ secrets.PRODUCTION_SSH_USER }}/${{ secrets.PRODUCTION_PORTAL_PATH }}
+
+            echo "🏗️ Building Project..."
+            npm run build
+
+      # ------------------------------------------------------------------------------------------------------------
+
+      # 7️⃣ RESTART
+
+      - name: Restart PM2
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.PRODUCTION_IP }}
+          port: ${{ secrets.PRODUCTION_SSH_PORT }}
+          username: ${{ secrets.PRODUCTION_SSH_USER }}
+          key: ${{ secrets.PRODUCTION_SSH_PRIVATE_KEY }}
+          script: |
+            set -e
+            cd /home/${{ secrets.PRODUCTION_SSH_USER }}/${{ secrets.PRODUCTION_PORTAL_PATH }}
+
+            echo "♻️ Restarting PM2..."
+            pm2 restart portal || pm2 start ecosystem.config.js --only portal
+
+            echo "✅ Deployment completed"
