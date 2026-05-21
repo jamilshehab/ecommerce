@@ -6,6 +6,8 @@ import CredibilityStrip from "./sections/home/CredibilityStrip";
 import Testimonials from "./sections/home/Testimonials";
 import CTA from "./sections/home/Cta";
 
+export const dynamic = "force-dynamic";
+
 export default async function Home() {
   return (
     <div className=" ">
