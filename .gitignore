@@ -7,8 +7,7 @@ backend/dist
 backend/build
 
 # environment files
-.env
-frontend/.env
+ frontend/.env
 backend/.env
 
 # OS
