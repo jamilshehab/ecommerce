@@ -1,8 +1,7 @@
 import { fetchAPI } from "../API";
-
-export async function getFeaturedProducts(limit = 3) {
+ export async function getFeaturedProducts(limit = 3) {
   const data = await fetchAPI<any>(
-    `/api/products?filters[isFeatured][$eq]=true&populate[main_image]=true&populate[category]=true&pagination[limit]=${limit}&sort=createdAt:desc`,
+    `/api/products?filters[isFeatured][$eq]=true&populate=*&pagination[limit]=${limit}&sort=createdAt:desc`,
     {
       next: { revalidate: 60 },
     },
