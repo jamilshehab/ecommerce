@@ -1,7 +1,7 @@
 import { fetchAPI } from "../API";
- export async function getFeaturedProducts(limit = 3) {
+export async function getFeaturedProducts(limit = 3) {
   const data = await fetchAPI<any>(
-    `/api/products?filters[isFeatured][$eq]=true&populate=*&pagination[limit]=${limit}&sort=createdAt:desc`,
+    `/api/products?filters[isFeatured][$eq]=true&populate=main_image&populate=category&pagination[limit]=${limit}&sort=createdAt:desc`,
     {
       next: { revalidate: 60 },
     },
@@ -41,6 +41,6 @@ export async function getProductBySlug(slug: string) {
       next: { revalidate: 60 },
     },
   );
- 
+
   return data.data?.[0] || null;
 }
