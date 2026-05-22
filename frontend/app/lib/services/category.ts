@@ -1,7 +1,7 @@
 import { fetchAPI } from "../API";
 
 export async function getCategories() {
-  const data = await fetchAPI<any>("/api/categories?populate=*", {
+  const data = await fetchAPI<any>("/categories?populate=*", {
     next: { revalidate: 60 },
   });
 
