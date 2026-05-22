@@ -4,8 +4,7 @@ import { motion } from "framer-motion";
 
 import { item } from "@/app/lib/animations/global";
 import { ProductCardProps } from "@/app/types";
-import { getStrapiImage } from "@/app/lib/services/common";
-import CustomImage from "../common/CustomImage";
+
 import { FaEye, FaShoppingBag } from "react-icons/fa";
 import Link from "next/link";
 import { useCartStore } from "@/app/lib/zustand/zustand";
