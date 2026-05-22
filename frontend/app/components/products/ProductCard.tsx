@@ -47,7 +47,7 @@ const ProductCard = ({ product, onQuickView }: ProductCardProps) => {
               In Stock
             </div>
           ) : isLowStock ? (
-            <div className="absolute top-3 left-3 rounded-full bg-orange-400 px-3 py-1 text-xs text-white">
+            <div className="absolute top-3 left-3 rounded-full bg-orange-500 px-3 py-1 text-xs text-white">
               Only {stock} left
             </div>
           ) : null}
