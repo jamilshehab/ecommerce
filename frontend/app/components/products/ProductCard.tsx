@@ -20,7 +20,7 @@ const ProductCard = ({ product, onQuickView }: ProductCardProps) => {
   const isOutOfStock = stock <= 0;
   const isLowStock = stock > 0 && stock <= 5;
   const imageUrl = product.main_image?.url
-    ? `${process.env.NEXT_PUBLIC_STRAPI_URL}${product.main_image.url}`
+    ? `${process.env.NEXT_PUBLIC_STRAPI_URL}/${product.main_image.url}`
     : "/placeholder.jpg";
   console.log("Product Image URL:", imageUrl); // Debug log for image URL
   return (
