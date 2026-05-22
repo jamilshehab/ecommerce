@@ -15,7 +15,7 @@ const FeaturedProducts = async () => {
             href="/shop"
             className="text-lg font-medium text-black hover:underline"
           >
-            View
+            View More
           </Link>
         </div>
       </div>

@@ -2,7 +2,7 @@ import { fetchAPI } from "../API";
 
 export async function getFeaturedProducts(limit = 3) {
   const res = await fetchAPI<any>(
-    `/api/products?filters[isFeatured][$eq]=true&populate[main_image]=true&populate[category]=true&pagination[limit]=${limit}&sort=createdAt:desc`,
+    `/products?filters[isFeatured][$eq]=true&populate[main_image]=true&populate[category]=true&pagination[limit]=${limit}&sort=createdAt:desc`,
     {
       next: { revalidate: 60 },
     },
@@ -25,7 +25,7 @@ export async function getProductsByCategory(
     populate: "*",
   });
 
-  const data = await fetchAPI<any>(`/api/products?${params.toString()}`, {
+  const data = await fetchAPI<any>(`/products?${params.toString()}`, {
     next: { revalidate: 60 },
   });
 
@@ -37,7 +37,7 @@ export async function getProductsByCategory(
 
 export async function getProductBySlug(slug: string) {
   const data = await fetchAPI<any>(
-    `/api/products?filters[slug][$eq]=${slug}&populate=*`,
+    `/products?filters[slug][$eq]=${slug}&populate=*`,
     {
       next: { revalidate: 60 },
     },
