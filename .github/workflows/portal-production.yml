@@ -38,7 +38,7 @@ jobs:
 
           echo "$CHANGED_FILES"
 
-          if echo "$CHANGED_FILES" | grep -E frontend/(package.json|package-lock.json)'; then
+          if echo "$CHANGED_FILES" | grep -E 'frontend/(package.json|package-lock.json)'; then
             echo "changed=true" >> $GITHUB_OUTPUT
           else
             echo "changed=false" >> $GITHUB_OUTPUT
