@@ -6,6 +6,10 @@ type FetchOptions = RequestInit & {
   };
 };
 
+function getToken() {
+  return process.env.STRAPI_TOKEN || "";
+}
+
 function getBaseUrl() {
   return process.env.NEXT_PUBLIC_STRAPI_URL || "";
 }
@@ -20,12 +24,13 @@ export async function fetchAPI<T>(
 
   const url = `${getBaseUrl()}/api${cleanEndpoint}`;
 
-  console.log("📡 Fetching:", url);
+  const token = getToken();
 
   const res = await fetch(url, {
     ...rest,
     headers: {
       "Content-Type": "application/json",
+      ...(token ? { Authorization: `Bearer ${token}` } : {}),
       ...(rest.headers || {}),
     },
     next,
