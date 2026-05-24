@@ -11,8 +11,8 @@ import { Button } from "@/app/components/ui/Button";
 
 const slides = [
   {
-    title: "Radiance Ritual",
-    desc: "Luxury skincare redefined",
+    title: "Self",
+
     image: "/images/slider/1.jpg",
   },
   {
@@ -57,7 +57,7 @@ export default function HeroSwiper() {
               {/* CONTENT */}
               <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6">
                 <Title>
-                  <span className="text-white">{s.title}</span>
+                  <span className="text-white text-uppercase ">{s.title}</span>
                 </Title>
 
                 <Text>
