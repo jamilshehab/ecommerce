@@ -6,23 +6,15 @@ import Image from "next/image";
 
 import "swiper/css";
 import "swiper/css/effect-fade";
-import { Text, Title } from "@/app/components/ui/Typography";
-import { Button } from "@/app/components/ui/Button";
 
 const slides = [
   {
-    title: "Self",
-
     image: "/images/slider/1.jpg",
   },
   {
-    title: "Pure Glow",
-    desc: "Reveal your natural beauty",
     image: "/images/slider/2.jpg",
   },
   {
-    title: "Silk Skin",
-    desc: "Soft. Smooth. Powerful.",
     image: "/images/slider/3.jpg",
   },
 ];
@@ -33,7 +25,7 @@ export default function HeroSwiper() {
       <Swiper
         modules={[EffectFade, Autoplay]}
         effect="fade"
-        autoplay={{ delay: 4500 }}
+        autoplay={{ delay: 4500, disableOnInteraction: false }}
         loop
         className="h-full"
       >
@@ -41,33 +33,45 @@ export default function HeroSwiper() {
           <SwiperSlide key={i}>
             <div className="relative h-full w-full overflow-hidden">
               {/* IMAGE */}
-              <div className="absolute inset-0 scale-110 animate-slowZoom">
+              <div className="absolute inset-0">
                 <Image
                   src={s.image}
-                  alt=""
+                  alt="Hero Image"
                   fill
-                  className="object-cover"
                   priority
+                  className="object-cover scale-110"
                 />
               </div>
 
               {/* OVERLAY */}
-              <div className="absolute inset-0 bg-black/40" />
+              <div className="absolute inset-0 bg-black/20 z-[1]" />
+
+              {/* LOGO ONLY ON FIRST SLIDE */}
+              {i === 0 && (
+                <div className="absolute bottom-6 md:bottom-10 left-0 right-0 z-[2] flex justify-center">
+                  <Image
+                    src="/images/logo/logo.png"
+                    alt="SELF Logo"
+                    width={420}
+                    height={140}
+                    className="
+                      w-[180px]
+                      sm:w-[240px]
+                      md:w-[320px]
+                      lg:w-[420px]
+                      h-auto
+                      object-contain
+                      brightness-0
+                      invert
+                      drop-shadow-2xl
+                      select-none
+                    "
+                  />
+                </div>
+              )}
 
               {/* CONTENT */}
-              <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6">
-                <Title>
-                  <span className="text-white text-uppercase ">{s.title}</span>
-                </Title>
-
-                <Text>
-                  <span className="text-slate-50 mt-4 block">{s.desc}</span>
-                </Text>
-
-                <div className="mt-8">
-                  <Button variant="primary">Discover Ritual</Button>
-                </div>
-              </div>
+              <div className="relative z-10 h-full flex items-end px-6 md:px-12 pb-10" />
             </div>
           </SwiperSlide>
         ))}

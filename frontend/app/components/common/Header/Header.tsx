@@ -1,6 +1,7 @@
 "use client";
 
 import { useCartStore } from "@/app/lib/zustand/zustand";
+import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { FiShoppingBag, FiMenu, FiX } from "react-icons/fi";
@@ -61,9 +62,12 @@ const Header = () => {
         {/* LOGO */}
         <div className="absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0">
           <Link href="/">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight">
-              SELF
-            </h1>
+            <Image
+              src="/images/logo/logo.png"
+              alt="SELF Logo"
+              width={100}
+              height={40}
+            />
           </Link>
         </div>
 
