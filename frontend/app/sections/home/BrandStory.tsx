@@ -37,7 +37,7 @@ export default function BrandStory() {
         {/* Small label */}
         <motion.div variants={item}>
           <Subtitle>
-            <span className="text-[var(--color-accent-3)] uppercase tracking-widest text-sm">
+            <span className="text-slate-600 uppercase tracking-widest text-sm">
               Our Philosophy
             </span>
           </Subtitle>
@@ -55,7 +55,7 @@ export default function BrandStory() {
         {/* Body text */}
         <motion.div variants={item}>
           <Text>
-            <span className="text-[var(--color-gray)] block max-w-2xl mx-auto">
+            <span className="!text-gray-500 block max-w-2xl mx-auto">
               We believe skincare should feel like a ritual, not a routine.
               Every formula is crafted with precision, inspired by nature, and
               refined with science to enhance your natural glow.
@@ -72,7 +72,7 @@ export default function BrandStory() {
         >
           <Link
             href="/shop"
-            className="border px-5 py-3 rounded-4xl border-[var(--color-black)] text-black hover:bg-[var(--color-accent-2)]"
+            className="border px-5 py-3 rounded-4xl border-black text-black hover:bg-[var(--color-accent-2)]"
           >
             Discover Our Story
           </Link>
