@@ -71,7 +71,7 @@ export default function BrandStory() {
           className="pt-4 inline-block"
         >
           <Link
-            href="/shop"
+            href="/about"
             className="border px-5 py-3 rounded-4xl border-black text-black hover:bg-[var(--color-accent-2)]"
           >
             Discover Our Story
