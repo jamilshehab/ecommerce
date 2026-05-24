@@ -3,9 +3,7 @@ import Breadcrumb from "../components/common/BreadCrumb";
 export default function Contact() {
   return (
     <main className="bg-white">
-      <Breadcrumb
-        items={[{ label: "Home", href: "/" }, { label: "Contact" }]}
-      />
+      <Breadcrumb items={[{ label: "Contact" }]} />
 
       <section className="min-h-screen px-6 py-24 flex items-center justify-center">
         <div className="max-w-5xl w-full">
