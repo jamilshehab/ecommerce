@@ -55,7 +55,7 @@ export default function BrandStory() {
         {/* Body text */}
         <motion.div variants={item}>
           <Text>
-            <span className="!text-gray-500 block max-w-2xl mx-auto">
+            <span className="!text-slate-900 block max-w-2xl mx-auto">
               We believe skincare should feel like a ritual, not a routine.
               Every formula is crafted with precision, inspired by nature, and
               refined with science to enhance your natural glow.
