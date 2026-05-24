@@ -3,23 +3,20 @@
 import { useCartStore } from "@/app/lib/zustand/zustand";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import { FiSearch, FiShoppingBag, FiMenu, FiX } from "react-icons/fi";
+import { FiShoppingBag, FiMenu, FiX, FiChevronDown } from "react-icons/fi";
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [aboutOpen, setAboutOpen] = useState(false);
 
   const { cart, openCart } = useCartStore();
 
   const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-
+    const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
-
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -33,48 +30,57 @@ const Header = () => {
     >
       {/* TOP BAR */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 sm:h-20 grid grid-cols-3 items-center">
-        {/* LEFT NAV DESKTOP */}
-        <nav className="hidden md:flex items-center gap-8 text-sm text-gray-800 justify-start">
+        {/* LEFT NAV */}
+        <nav className="hidden md:flex items-center gap-6 text-sm text-gray-800">
           <Link href="/" className="hover:opacity-60 transition">
             Home
+          </Link>
+
+          <Link href="/about" className="hover:opacity-60 transition">
+            About Us
           </Link>
 
           <Link href="/shop" className="hover:opacity-60 transition">
             Shop
           </Link>
-
-          {/* <Link href="/about" className="hover:opacity-60 transition">
-            About
-          </Link> */}
+          {/* ABOUT DROPDOWN */}
         </nav>
-
-        {/* MOBILE MENU BUTTON */}
-        <div className="md:hidden flex justify-start">
-          <button
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="text-gray-800"
-          >
-            {menuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
-          </button>
-        </div>
 
         {/* CENTER LOGO */}
         <div className="flex justify-center">
-          <div className="flex items-center justify-center">
+          <Link href="/">
             <h1 className="text-black font-extrabold text-3xl sm:text-5xl tracking-tight">
               SELF
             </h1>
-          </div>
+          </Link>
         </div>
 
-        {/* RIGHT ICONS */}
-        <div className="flex items-center gap-4 sm:gap-5 text-gray-800 justify-end">
-          {/* <FiSearch className="cursor-pointer hover:opacity-60 transition text-lg" /> */}
+        {/* RIGHT SIDE */}
+        <div className="flex justify-end items-center gap-6 text-sm text-gray-800">
+          <Link
+            href="/careers"
+            className="hover:opacity-60 transition hidden sm:block"
+          >
+            Careers
+          </Link>
 
-          {/* CART ICON */}
+          <Link
+            href="/franchise"
+            className="hover:opacity-60 transition hidden sm:block"
+          >
+            Franchise
+          </Link>
+
+          <Link
+            href="/contact"
+            className="hover:opacity-60 transition hidden sm:block"
+          >
+            Contact
+          </Link>
+
           <button
             onClick={openCart}
-            className="relative cursor-pointer hover:opacity-60 transition"
+            className="relative hover:opacity-60 transition"
           >
             <FiShoppingBag className="text-lg" />
 
@@ -91,28 +97,38 @@ const Header = () => {
       {menuOpen && (
         <div className="md:hidden bg-white/95 backdrop-blur-xl border-t border-black/5 px-6 pb-6">
           <div className="flex flex-col gap-4 pt-4 text-sm text-gray-800">
-            <Link
-              href="/"
-              onClick={() => setMenuOpen(false)}
-              className="hover:opacity-60 transition"
-            >
+            <Link href="/" onClick={() => setMenuOpen(false)}>
               Home
             </Link>
 
-            <Link
-              href="/shop"
-              onClick={() => setMenuOpen(false)}
-              className="hover:opacity-60 transition"
-            >
+            <p className="text-gray-400 mt-2">About Us</p>
+
+            <Link href="/mission" onClick={() => setMenuOpen(false)}>
+              Mission
+            </Link>
+
+            <Link href="/vision" onClick={() => setMenuOpen(false)}>
+              Vision
+            </Link>
+
+            <Link href="/our-story" onClick={() => setMenuOpen(false)}>
+              Our Story
+            </Link>
+
+            <Link href="/shop" onClick={() => setMenuOpen(false)}>
               Shop
             </Link>
 
-            <Link
-              href="/about"
-              onClick={() => setMenuOpen(false)}
-              className="hover:opacity-60 transition"
-            >
-              About
+            <Link href="/careers" onClick={() => setMenuOpen(false)}>
+              Careers
+            </Link>
+
+            <Link href="/franchise" onClick={() => setMenuOpen(false)}>
+              Franchise
+            </Link>
+
+            <Link href="/contact-info" onClick={() => setMenuOpen(false)}>
+              Contact
             </Link>
           </div>
         </div>
