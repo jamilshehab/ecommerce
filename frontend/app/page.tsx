@@ -5,6 +5,7 @@ import FeaturedProducts from "./sections/home/FeaturedProducts";
 import CredibilityStrip from "./sections/home/CredibilityStrip";
 import Testimonials from "./sections/home/Testimonials";
 import CTA from "./sections/home/Cta";
+import Instagram from "./components/social/Instagram";
 
 export const dynamic = "force-dynamic";
 
@@ -17,6 +18,7 @@ export default async function Home() {
       <CredibilityStrip />
       <Testimonials />
       <CTA />
+      <Instagram />
     </div>
   );
 }

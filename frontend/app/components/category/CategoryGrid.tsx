@@ -18,7 +18,7 @@ export default function CategoryGrid({
         viewport={{ once: true }}
         className="text-center mb-20"
       >
-        <h2 className="text-5xl font-semibold tracking-tight">
+        <h2 className="text-5xl font-semibold text-black tracking-tight">
           Shop by Category
         </h2>
         <p className="text-gray-500 mt-4 text-lg"></p>
