@@ -34,9 +34,14 @@ export default function CredibilityStrip() {
           {items.map((item, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.2 }}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{
+                duration: 0.6,
+                delay: i * 0.1,
+                ease: "easeOut",
+              }}
               className="group"
             >
               {/* Big number (luxury touch) */}

@@ -25,11 +25,11 @@ const item = {
 export default function CTA() {
   return (
     <motion.section
-      className="py-40 px-6 md:px-20 bg-black text-white"
+      className="py-20 md:py-40 px-6 md:px-20 bg-black text-white"
       variants={container}
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, amount: 0.4 }}
+      viewport={{ once: true, amount: 0.15 }}
     >
       <div className="max-w-4xl mx-auto text-center space-y-10">
         {/* Headline */}
