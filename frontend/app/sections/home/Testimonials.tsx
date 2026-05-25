@@ -28,7 +28,7 @@ export default function Testimonials() {
     <section className="py-40 px-6 md:px-20 bg-secondary">
       <div className="max-w-4xl mx-auto text-center">
         {/* Title */}
-        <h2 className="text-4xl md:text-5xl font-extrabold mb-16">
+        <h2 className="text-4xl md:text-5xl text-black font-extrabold mb-16">
           Loved by Many
         </h2>
 
