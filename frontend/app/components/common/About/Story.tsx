@@ -15,7 +15,9 @@ const Story = () => {
           Story
         </p>
 
-        <h2 className="mt-3 text-3xl font-light">Where it started</h2>
+        <h2 className="mt-3 text-3xl text-slate-700 font-light">
+          Where it started
+        </h2>
 
         <p className="mt-6 text-gray-600 leading-relaxed">
           Founded with a vision in Iraq and expanding to Lebanon, SELF

@@ -36,7 +36,7 @@ const Vision = () => {
           <p className="text-xs tracking-[0.3em] text-gray-400 uppercase">
             Vision
           </p>
-          <h2 className="mt-3 text-3xl font-light">
+          <h2 className="mt-3 text-3xl font-light text-slate-700">
             Building a global creative identity
           </h2>
 

@@ -45,7 +45,9 @@ export default function CredibilityStrip() {
               </span>
 
               <div className="mt-6 space-y-4">
-                <h3 className="text-xl font-medium">{item.title}</h3>
+                <h3 className="text-xl font-medium text-slate-700">
+                  {item.title}
+                </h3>
 
                 <p className="text-gray-500 text-sm leading-relaxed max-w-xs">
                   {item.desc}

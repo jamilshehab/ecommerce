@@ -17,7 +17,7 @@ const Mission = () => {
             <p className="text-xs tracking-[0.3em] text-gray-400 uppercase">
               Mission
             </p>
-            <h2 className="mt-3 text-3xl font-light">
+            <h2 className="mt-3 text-3xl text-slate-700 font-light">
               Designing identity through culture
             </h2>
 

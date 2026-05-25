@@ -35,7 +35,7 @@ export default function CareersPage() {
       <Breadcrumb items={[{ label: "Careers" }]} />
 
       {/* HERO */}
-      <section className="relative py-20 md:py-32 px-6 bg-zinc-50">
+      <section className="relative py-20 md:py-32 px-6  bg-secondary">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 md:gap-16 items-center">
           {/* LEFT */}
           <div>
@@ -145,7 +145,7 @@ export default function CareersPage() {
       </section>
 
       {/* OPEN POSITIONS */}
-      <section className="py-20 md:py-28 px-6 bg-zinc-50">
+      <section className="py-20 md:py-28 px-6 bg-secondary">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
             <div>
