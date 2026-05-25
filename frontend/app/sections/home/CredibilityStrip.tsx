@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
 export default function CredibilityStrip() {
   const items = [
@@ -18,12 +18,42 @@ export default function CredibilityStrip() {
     },
   ];
 
+  const container = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.12,
+      },
+    },
+  };
+
+  const item: Variants = {
+    hidden: {
+      opacity: 0,
+      y: 20,
+    },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: [0.22, 1, 0.36, 1],
+      },
+    },
+  };
+
   return (
     <section className="py-40 px-6 md:px-20 bg-white">
-      <div className="max-w-6xl mx-auto">
+      <motion.div
+        className="max-w-6xl mx-auto"
+        variants={container}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+      >
         {/* Header */}
-        <div className="  mb-20">
-          <h2 className="text-4xl md:text-6xl text-center text-slate-900  font-extrabold leading-tight">
+        <div className="mb-20">
+          <h2 className="text-4xl md:text-6xl text-center text-slate-900 font-extrabold leading-tight">
             What makes it
             <br /> exceptional
           </h2>
@@ -31,37 +61,26 @@ export default function CredibilityStrip() {
 
         {/* Editorial Layout */}
         <div className="grid md:grid-cols-3 gap-16">
-          {items.map((item, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.15 }}
-              transition={{
-                duration: 0.6,
-                delay: i * 0.1,
-                ease: "easeOut",
-              }}
-              className="group"
-            >
-              {/* Big number (luxury touch) */}
+          {items.map((itemData, i) => (
+            <motion.div key={i} variants={item} className="group">
+              {/* Big number */}
               <span className="text-6xl font-extrabold text-gray-200 group-hover:text-gray-300 transition">
                 0{i + 1}
               </span>
 
               <div className="mt-6 space-y-4">
                 <h3 className="text-xl font-medium text-slate-700">
-                  {item.title}
+                  {itemData.title}
                 </h3>
 
                 <p className="text-gray-500 text-sm leading-relaxed max-w-xs">
-                  {item.desc}
+                  {itemData.desc}
                 </p>
               </div>
             </motion.div>
           ))}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

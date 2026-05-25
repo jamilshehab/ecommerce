@@ -10,30 +10,36 @@ const container = {
   show: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.2,
+      staggerChildren: 0.15,
     },
   },
 };
 
 const item: Variants = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: {
+    opacity: 0,
+    y: 24,
+  },
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: "easeOut" },
+    transition: {
+      duration: 0.45,
+      ease: [0.22, 1, 0.36, 1],
+    },
   },
 };
 
 export default function BrandStory() {
   return (
-    <motion.section
-      className="py-32 px-6 md:px-20 bg-white"
-      variants={container}
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: true, amount: 0.15 }}
-    >
-      <div className="max-w-5xl mx-auto text-center space-y-10">
+    <section className="py-32 px-6 md:px-20 bg-white">
+      <motion.div
+        variants={container}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.15 }}
+        className="max-w-5xl mx-auto text-center space-y-10"
+      >
         {/* Small label */}
         <motion.div variants={item}>
           <Subtitle>
@@ -66,8 +72,8 @@ export default function BrandStory() {
         {/* CTA */}
         <motion.div
           variants={item}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.98 }}
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.99 }}
           className="pt-4 inline-block"
         >
           <Link
@@ -77,7 +83,7 @@ export default function BrandStory() {
             Discover Our Story
           </Link>
         </motion.div>
-      </div>
-    </motion.section>
+      </motion.div>
+    </section>
   );
 }
