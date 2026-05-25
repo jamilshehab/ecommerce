@@ -23,7 +23,7 @@ export default function Footer() {
         {/* Navigation */}
         <div>
           <h4 className="text-sm font-semibold uppercase tracking-wider text-white/80 mb-5">
-            Navigation
+            Quick Links
           </h4>
 
           <nav className="flex flex-col gap-3">
@@ -46,9 +46,12 @@ export default function Footer() {
           </h4>
 
           <div className="space-y-3 text-sm">
-            <p className="text-white/60">hello@selfbeauty.com</p>
-
-            <p className="text-white/60">+961 00 000 000</p>
+            <Link
+              href="mailto:careers@self.com"
+              className="text-white/60 transition-colors duration-200 hover:text-white"
+            >
+              careers@self.com
+            </Link>
           </div>
         </div>
       </div>

@@ -56,7 +56,7 @@ export default function SubscribePopup() {
         {/* Image Side */}
         <div className="hidden md:block relative">
           <Image
-            src="/images/subscription/subscribe.jpg"
+            src="/images/instagram/1.jpg"
             height={500}
             width={500}
             alt="skincare"
@@ -71,17 +71,17 @@ export default function SubscribePopup() {
           {/* Close button */}
           <button
             onClick={closeModal}
-            className="absolute cursor-pointer top-5 right-5 text-gray-500 hover:text-black transition"
+            className="absolute cursor-pointer top-5 right-5 text-slate-700 hover:text-black transition"
           >
             ✕
           </button>
 
           {/* Text */}
-          <p className="text-xs tracking-[0.3em] uppercase text-gray-500">
+          <p className="text-xs tracking-[0.3em] uppercase text-slate-700">
             Skincare Rituals
           </p>
 
-          <h2 className="text-3xl md:text-4xl font-light mt-3 leading-tight">
+          <h2 className="text-3xl text-slate-700 md:text-4xl font-light mt-3 leading-tight">
             Elevate your skincare ritual
           </h2>
 
@@ -97,7 +97,7 @@ export default function SubscribePopup() {
               placeholder="Enter your email address"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="border border-gray-200 bg-white/70 p-4 rounded-xl outline-none focus:ring-1 focus:ring-black transition"
+              className="border border-gray-200 bg-white/70 text-slate-700 p-4 rounded-xl outline-none focus:ring-1 focus:ring-black transition"
             />
 
             <button
