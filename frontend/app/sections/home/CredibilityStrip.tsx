@@ -23,7 +23,7 @@ export default function CredibilityStrip() {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="  mb-20">
-          <h2 className="text-4xl md:text-6xl text-center  font-extrabold leading-tight">
+          <h2 className="text-4xl md:text-6xl text-center text-slate-900  font-extrabold leading-tight">
             What makes it
             <br /> exceptional
           </h2>

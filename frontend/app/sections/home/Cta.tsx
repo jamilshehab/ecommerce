@@ -35,7 +35,7 @@ export default function CTA() {
         {/* Headline */}
         <motion.h2
           variants={item}
-          className="text-4xl md:text-6xl font-extrabold tracking-tight"
+          className="text-4xl md:text-6xl font-extrabold  tracking-tight"
         >
           Discover SELF
         </motion.h2>
