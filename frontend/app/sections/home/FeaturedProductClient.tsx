@@ -4,21 +4,20 @@ import { useEffect } from "react";
 import ProductsGrid from "@/app/components/products/ProductGrid";
 import { useProductStore } from "@/app/hooks/useProduct";
 import Link from "next/link";
+import { useHydrateProductList } from "@/app/hooks/useHydrateProducts";
 type Props = {
   initialProducts: any[];
 };
 
 const FeaturedProductsClient = ({ initialProducts }: Props) => {
-  const setProducts = useProductStore((state) => state.setProducts);
-  const products = useProductStore((state) => state.products);
+  useHydrateProductList(initialProducts);
 
-  useEffect(() => {
-    setProducts(initialProducts);
-  }, [initialProducts, setProducts]);
+  // ✅ always read from Zustand (single source of truth)
+  const hydratedProducts = useProductStore((state) => state.products);
 
   return (
     <section className="bg-secondary py-20">
-      <ProductsGrid products={products} />
+      <ProductsGrid products={hydratedProducts} />
 
       <div className="">
         <div className="flex items-center justify-center mt-16">
