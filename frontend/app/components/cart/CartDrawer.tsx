@@ -9,19 +9,13 @@ import { useCartStore } from "@/app/lib/zustand/zustand";
 import { useProductStore } from "@/app/hooks/useProduct";
 import { getStrapiImage } from "@/app/lib/services/common";
 import CustomImage from "../common/CustomImage";
+import { useRemoveFromCart } from "@/app/hooks/removeFromCart";
 
 const CartDrawer = () => {
   const pathname = usePathname();
 
-  const {
-    cart,
-    isOpen,
-    closeCart,
-    increaseQuantity,
-    decreaseQuantity,
-    removeFromCart,
-  } = useCartStore();
-
+  const { cart, isOpen, closeCart } = useCartStore();
+  const { handleRemoveFromCart } = useRemoveFromCart();
   // Product store (source of truth for stock)
   const products = useProductStore((state) => state.products);
 
@@ -71,9 +65,6 @@ const CartDrawer = () => {
                 (p) => p.documentId === item.documentId,
               );
 
-              const stock = product?.stock ?? 0;
-              const isMaxStock = item.quantity >= stock;
-
               return (
                 <div key={item.documentId} className="flex items-center gap-4">
                   {/* image */}
@@ -89,13 +80,10 @@ const CartDrawer = () => {
                   <div className="flex-1">
                     <p className="font-medium text-sm">{item.title}</p>
                     <p className="text-xs text-gray-500">${item.price}</p>
-
-                    {/* stock (only UI hint, optional) */}
-                    <p className="text-xs text-gray-400">Stock: {stock}</p>
                   </div>
 
                   {/* remove */}
-                  <button onClick={() => removeFromCart(item.documentId)}>
+                  <button onClick={() => handleRemoveFromCart(item.documentId)}>
                     <X size={18} />
                   </button>
                 </div>
