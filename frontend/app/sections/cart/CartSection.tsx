@@ -7,15 +7,11 @@ import { getStrapiImage } from "@/app/lib/services/common";
 import CustomImage from "@/app/components/common/CustomImage";
 
 import { X } from "lucide-react"; // ✅ NEW: remove icon
+import { useRemoveFromCart } from "@/app/hooks/removeFromCart";
 
 export default function CartSection() {
-  const {
-    cart,
-    decreaseQuantity,
-    increaseQuantity,
-    removeFromCart, // ✅ NEW: remove action from zustand
-  } = useCartStore();
-
+  const { cart, decreaseQuantity, increaseQuantity } = useCartStore();
+  const { handleRemoveFromCart } = useRemoveFromCart();
   const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
   if (cart.length === 0) {
@@ -116,7 +112,7 @@ export default function CartSection() {
                     Removes item completely from cart
                 ================================ */}
                 <button
-                  onClick={() => removeFromCart(item.documentId)}
+                  onClick={() => handleRemoveFromCart(item.documentId)}
                   className="text-gray-400 hover:text-red-500 transition ml-2"
                 >
                   <X size={18} />
