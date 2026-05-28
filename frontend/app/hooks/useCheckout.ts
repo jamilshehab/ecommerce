@@ -68,7 +68,7 @@ export function useCheckout() {
           quantity: Number(item.quantity),
 
           // IMPORTANT: ensure this is REAL Strapi product id
-          productId: String(item.productId ?? item.id),
+          productId: String(item.documentId ?? item.documentId),
         })),
 
         total: Number(total),

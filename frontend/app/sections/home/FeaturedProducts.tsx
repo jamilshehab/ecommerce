@@ -1,25 +1,10 @@
-import ProductsGrid from "@/app/components/products/ProductGrid";
 import { getFeaturedProducts } from "@/app/lib/services/products";
-import Link from "next/link";
+import FeaturedProductsClient from "./FeaturedProductClient";
 
 const FeaturedProducts = async () => {
   const products = await getFeaturedProducts(3);
-  return (
-    <section className="bg-secondary py-20">
-      <ProductsGrid products={products} />
 
-      <div className="">
-        <div className="flex items-center justify-center mt-16">
-          <Link
-            href="/shop"
-            className="text-lg font-medium text-black hover:underline"
-          >
-            View All Products
-          </Link>
-        </div>
-      </div>
-    </section>
-  );
+  return <FeaturedProductsClient initialProducts={products} />;
 };
 
 export default FeaturedProducts;

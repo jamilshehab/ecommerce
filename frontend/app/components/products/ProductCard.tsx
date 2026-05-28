@@ -7,17 +7,23 @@ import { ProductCardProps } from "@/app/types";
 
 import { FaEye, FaShoppingBag } from "react-icons/fa";
 import Link from "next/link";
-import { useCartStore } from "@/app/lib/zustand/zustand";
-import { useState } from "react";
+
 import Image from "next/image";
+import { useAddToCart } from "@/app/hooks/addToCart";
+import { useProductStore } from "@/app/hooks/useProduct";
 
 const ProductCard = ({ product, onQuickView }: ProductCardProps) => {
-  const [quantity, setQuantity] = useState(1);
-  const addToCart = useCartStore((state) => state.addToCart);
-  const stock = product.stock || 0;
+  const { handleAddToCart } = useAddToCart(product);
+  const stock = useProductStore((state) => {
+    const p = state.products.find(
+      (item) => item.documentId === product.documentId,
+    );
+    return p?.stock ?? product.stock ?? 0;
+  });
 
   const isOutOfStock = stock <= 0;
   const isLowStock = stock > 0 && stock <= 5;
+
   const imageUrl = product.main_image?.url
     ? `${process.env.NEXT_PUBLIC_STRAPI_URL}/${product.main_image.url}`
     : "/placeholder.jpg";
@@ -41,15 +47,15 @@ const ProductCard = ({ product, onQuickView }: ProductCardProps) => {
             <div className="absolute top-3 left-3 rounded-full bg-red-500 px-3 py-1 text-xs text-white">
               Out of Stock
             </div>
-          ) : stock ? (
-            <div className="absolute top-3 left-3 rounded-full bg-green-500 px-3 py-1 text-xs text-white">
-              In Stock
-            </div>
           ) : isLowStock ? (
             <div className="absolute top-3 left-3 rounded-full bg-orange-500 px-3 py-1 text-xs text-white">
               Only {stock} left
             </div>
-          ) : null}
+          ) : (
+            <div className="absolute top-3 left-3 rounded-full bg-green-500 px-3 py-1 text-xs text-white">
+              In Stock
+            </div>
+          )}
 
           <div className="absolute inset-0 bg-black/0 transition group-hover:bg-black/10" />
 
@@ -69,14 +75,11 @@ const ProductCard = ({ product, onQuickView }: ProductCardProps) => {
               disabled={isOutOfStock}
               onClick={(e) => {
                 e.preventDefault();
-                addToCart({
-                  id: product.id,
-                  title: product.title,
-                  price: product.price,
-                  image: product.main_image?.url || "",
-                  stock: stock,
-                  quantity: quantity,
-                });
+
+                console.log("🟢 CLICK PRODUCT:", product);
+                console.log("🟢 PRODUCT ID:", product.id, typeof product.id);
+
+                handleAddToCart(e);
               }}
               className="rounded-full bg-white/90 p-3 shadow-lg backdrop-blur transition hover:scale-110 cursor-pointer disabled:cursor-not-allowed disabled:bg-gray-300"
             >

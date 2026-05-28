@@ -1,7 +1,6 @@
-import ShopGrid from "@/app/components/category/ShopGrid";
+import ClientShopSection from "@/app/components/ClientShopSection";
 import Breadcrumb from "@/app/components/common/BreadCrumb";
-import SortDropdown from "@/app/components/common/DropDown";
-import Pagination from "@/app/components/common/Pagination";
+
 import { getProductsByCategory } from "@/app/lib/services/products";
 
 export const dynamic = "force-dynamic";
@@ -32,15 +31,7 @@ export default async function Page({ params, searchParams }: any) {
           },
         ]}
       />
-      <div className="max-w-6xl mx-auto py-20">
-        <div className="flex justify-between mb-6">
-          <p>{products.length} products</p>
-          <SortDropdown />
-        </div>
-
-        <ShopGrid products={products} />
-        {products.length > 6 && <Pagination totalPages={pageCount} />}
-      </div>
+      <ClientShopSection products={products} pageCount={pageCount} />
     </main>
   );
 }

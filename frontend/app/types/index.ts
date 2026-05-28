@@ -2,6 +2,7 @@ export type ProductImage = {
   src: string;
 };
 export type Product = {
+  documentId: string;
   id: number;
   title: string;
   slug: string;
