@@ -11,6 +11,9 @@ type Store = {
   // decrease stock after add-to-cart or purchase
   decreaseStock: (id: string, qty: number) => void;
 
+  // restore stock when removing from cart
+  restoreStock: (id: string, qty: number) => void;
+
   // update a single product (from hydration or API refresh)
   updateProduct: (product: Product) => void;
 };
@@ -32,9 +35,9 @@ export const useProductStore = create<Store>((set) => ({
 
   /**
    * Decrease stock safely without mutating state
-   * Optimization:
-   * - avoids unnecessary state update if product is not found
-   * - ensures stock never goes below 0
+   * Used when:
+   * - adding product to cart
+   * - completing purchase
    */
   decreaseStock: (id, qty) =>
     set((state) => {
@@ -60,10 +63,39 @@ export const useProductStore = create<Store>((set) => ({
     }),
 
   /**
+   * Restore stock when removing from cart
+   * Used when:
+   * - removing item from cart
+   * - decreasing cart quantity
+   */
+  restoreStock: (id, qty) =>
+    set((state) => {
+      let changed = false;
+
+      const updatedProducts = state.products.map((p) => {
+        if (p.documentId === id) {
+          changed = true;
+
+          return {
+            ...p,
+            stock: p.stock + qty,
+          };
+        }
+
+        return p;
+      });
+
+      // 🚀 prevent useless re-render if nothing changed
+      if (!changed) return state;
+
+      return { products: updatedProducts };
+    }),
+
+  /**
    * Update a single product (hydration or refresh)
-   * Optimization:
-   * - avoids re-render if product not found
-   * - replaces only the matching product
+   * Used when:
+   * - product detail page loads
+   * - backend updates product
    */
   updateProduct: (product: Product) =>
     set((state) => {
