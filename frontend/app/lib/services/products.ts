@@ -4,7 +4,7 @@ export async function getFeaturedProducts(limit = 3) {
   const res = await fetchAPI<any>(
     `/products?filters[isFeatured][$eq]=true&populate[main_image]=true&populate[category]=true&pagination[limit]=${limit}&sort=createdAt:desc`,
     {
-      next: { revalidate: 60 },
+      cache: "no-store",
     },
   );
 
@@ -26,7 +26,7 @@ export async function getProductsByCategory(
   });
 
   const data = await fetchAPI<any>(`/products?${params.toString()}`, {
-    next: { revalidate: 60 },
+    cache: "no-store",
   });
 
   return {
@@ -39,7 +39,7 @@ export async function getProductBySlug(slug: string) {
   const data = await fetchAPI<any>(
     `/products?filters[slug][$eq]=${slug}&populate=*`,
     {
-      next: { revalidate: 60 },
+      cache: "no-store",
     },
   );
 

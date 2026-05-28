@@ -102,7 +102,7 @@ export default function CheckoutSection() {
           <div className="space-y-4 max-h-72 overflow-y-auto pr-2">
             {cart.map((item) => (
               <div
-                key={item.id}
+                key={item.documentId}
                 className="flex justify-between items-center text-sm border-b pb-3"
               >
                 <div>

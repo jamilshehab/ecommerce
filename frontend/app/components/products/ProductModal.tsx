@@ -11,13 +11,28 @@ import CustomImage from "../common/CustomImage";
 import { getStrapiImage } from "@/app/lib/services/common";
 import { useCartStore } from "@/app/lib/zustand/zustand";
 import { FaShoppingBag } from "react-icons/fa";
+import { useAddToCart } from "@/app/hooks/addToCart";
+import { useProductStock } from "@/app/hooks/useProductStock";
+import { useHydrateProduct } from "@/app/hooks/useHydrateProduct";
 
 const ProductModal = ({ selected, onClose }: ProductModalProps) => {
   const [quantity, setQuantity] = useState(1);
-  const stock = selected.stock || 0;
-  const isOutOfStock = stock <= 0;
-  const isLowStock = stock > 0 && stock <= 5;
-  const addToCart = useCartStore((state) => state.addToCart);
+  const { handleAddToCart } = useAddToCart(selected);
+  const { stock, isOutOfStock, isLowStock } = useProductStock(selected);
+  useHydrateProduct(selected);
+  const increaseQuantity = () => {
+    setQuantity((prev) => {
+      if (prev >= stock) return prev;
+      return prev + 1;
+    });
+  };
+
+  // ✅ SAFE decrease (never below 1)
+  const decreaseQuantity = () => {
+    setQuantity((prev) => Math.max(1, prev - 1));
+  };
+
+  // optional safety flag
   return (
     <motion.div
       className="fixed inset-0 bg-black/70 backdrop-blur-md flex items-center justify-center z-50 px-4"
@@ -84,15 +99,15 @@ const ProductModal = ({ selected, onClose }: ProductModalProps) => {
               <div className="absolute top-3 left-3 rounded-full bg-red-500 px-3 py-1 text-xs text-white">
                 Out of Stock
               </div>
-            ) : stock ? (
-              <div className="absolute top-3 left-3 rounded-full bg-green-500 px-3 py-1 text-xs text-white">
-                In Stock
-              </div>
             ) : isLowStock ? (
               <div className="absolute top-3 left-3 rounded-full bg-orange-500 px-3 py-1 text-xs text-white">
                 Only {stock} left
               </div>
-            ) : null}
+            ) : (
+              <div className="absolute top-3 left-3 rounded-full bg-green-500 px-3 py-1 text-xs text-white">
+                In Stock
+              </div>
+            )}
           </motion.div>
 
           {/* CONTENT */}
@@ -118,15 +133,20 @@ const ProductModal = ({ selected, onClose }: ProductModalProps) => {
               <p className="text-sm text-gray-500 mb-2">Quantity</p>
               <div className="flex items-center border rounded-full w-fit overflow-hidden">
                 <button
-                  onClick={() => setQuantity((q) => Math.max(1, q - 1))}
-                  className="px-4 py-2 hover:bg-gray-100"
+                  onClick={decreaseQuantity}
+                  className="flex h-14 w-14 items-center justify-center text-xl text-gray-600 transition hover:bg-gray-100"
                 >
-                  −
+                  -
                 </button>
-                <span className="px-6">{quantity}</span>
+
+                <div className="flex h-14 min-w-[70px] items-center justify-center border-x border-gray-200 text-lg font-semibold text-black">
+                  {quantity}
+                </div>
+
                 <button
-                  onClick={() => setQuantity((q) => q + 1)}
-                  className="px-4 py-2 hover:bg-gray-100"
+                  onClick={increaseQuantity}
+                  disabled={quantity >= stock}
+                  className="flex h-14 w-14 items-center justify-center text-xl text-gray-600 transition hover:bg-gray-100 disabled:cursor-not-allowed disabled:opacity-40"
                 >
                   +
                 </button>
@@ -137,16 +157,7 @@ const ProductModal = ({ selected, onClose }: ProductModalProps) => {
             <div className="mt-8">
               <button
                 disabled={isOutOfStock}
-                onClick={() =>
-                  addToCart({
-                    id: selected.id,
-                    title: selected.title,
-                    price: selected.price,
-                    image: selected.main_image?.url || "",
-                    stock: stock,
-                    quantity: quantity, // IMPORTANT: use state
-                  })
-                }
+                onClick={handleAddToCart}
                 className="flex items-center justify-center gap-3 rounded-2xl bg-black px-8 py-4 text-sm font-medium text-white transition hover:scale-[1.01] hover:bg-neutral-900 disabled:cursor-not-allowed disabled:bg-gray-300"
               >
                 <FaShoppingBag size={18} />

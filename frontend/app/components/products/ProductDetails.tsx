@@ -1,14 +1,16 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Heart, Truck, ShieldCheck } from "lucide-react";
+import { Truck, ShieldCheck } from "lucide-react";
 
 import { Product } from "@/app/types";
 import { getStrapiImage } from "@/app/lib/services/common";
 import CustomImage from "../common/CustomImage";
 import { useState } from "react";
-import { useCartStore } from "@/app/lib/zustand/zustand";
 import { FaShoppingBag } from "react-icons/fa";
+import { useAddToCart } from "@/app/hooks/addToCart";
+import { useProductStock } from "@/app/hooks/useProductStock";
+import { useHydrateProduct } from "@/app/hooks/useHydrateProduct"; // ✅ ADD THIS
 
 type ProductDetailsProps = {
   product: Product;
@@ -16,16 +18,32 @@ type ProductDetailsProps = {
 
 const ProductDetails = ({ product }: ProductDetailsProps) => {
   const [mainImage, setMainImage] = useState(product.main_image);
-
   const [quantity, setQuantity] = useState(1);
 
-  const stock = product.stock || 0;
+  const { handleAddToCart } = useAddToCart(product);
+  const { stock, isOutOfStock, isLowStock } = useProductStock(product);
 
-  const isOutOfStock = stock <= 0;
-  const isLowStock = stock > 0 && stock <= 5;
-  const addToCart = useCartStore((state) => state.addToCart);
+  // ✅ HYDRATE PRODUCT INTO ZUSTAND
+  useHydrateProduct(product);
+
+  // ✅ SAFE increase (prevents exceeding stock)
+  const increaseQuantity = () => {
+    setQuantity((prev) => {
+      if (prev >= stock) return prev;
+      return prev + 1;
+    });
+  };
+
+  // ✅ SAFE decrease (never below 1)
+  const decreaseQuantity = () => {
+    setQuantity((prev) => Math.max(1, prev - 1));
+  };
+
+  // optional safety flag
+  const canAdd = !isOutOfStock && quantity > 0;
+
   return (
-    <section className="  bg-white py-20">
+    <section className="bg-white py-20">
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-14 px-4 md:grid-cols-2 lg:px-8">
         {/* LEFT SIDE */}
         <motion.div
@@ -34,7 +52,6 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
           transition={{ duration: 0.5 }}
           className="space-y-5"
         >
-          {/* MAIN IMAGE */}
           <div className="group relative overflow-hidden rounded-[32px] bg-[#f7f7f7]">
             <CustomImage
               src={getStrapiImage(mainImage?.url || "/placeholder.png")}
@@ -44,20 +61,19 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
               className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
             />
 
-            {/* STOCK BADGE */}
             {isOutOfStock ? (
               <div className="absolute top-3 left-3 rounded-full bg-red-500 px-3 py-1 text-xs text-white">
                 Out of Stock
-              </div>
-            ) : stock ? (
-              <div className="absolute top-3 left-3 rounded-full bg-green-500 px-3 py-1 text-xs text-white">
-                In Stock
               </div>
             ) : isLowStock ? (
               <div className="absolute top-3 left-3 rounded-full bg-orange-500 px-3 py-1 text-xs text-white">
                 Only {stock} left
               </div>
-            ) : null}
+            ) : (
+              <div className="absolute top-3 left-3 rounded-full bg-green-500 px-3 py-1 text-xs text-white">
+                In Stock
+              </div>
+            )}
           </div>
 
           {/* GALLERY */}
@@ -93,24 +109,20 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
           transition={{ duration: 0.6 }}
           className="flex flex-col justify-center"
         >
-          {/* CATEGORY */}
           <span className="mb-4 text-sm uppercase tracking-[0.3em] text-gray-400">
             {product.category?.title}
           </span>
 
-          {/* TITLE */}
           <h1 className="text-4xl text-capitalize font-bold leading-tight text-black md:text-5xl">
             {product.title}
           </h1>
 
-          {/* PRICE */}
           <div className="mt-8 flex items-end gap-4">
             <span className="text-4xl font-bold text-black">
               ${product.price}
             </span>
           </div>
 
-          {/* DESCRIPTION */}
           <p className="mt-8 max-w-xl text-lg leading-relaxed text-gray-600">
             {product.description ||
               "A luxurious skincare essential crafted with premium ingredients for daily hydration and radiant skin."}
@@ -118,12 +130,11 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
 
           {/* ACTIONS */}
           <div className="mt-10 flex flex-col gap-5">
-            {/* QUANTITY + WISHLIST */}
+            {/* QUANTITY */}
             <div className="flex items-center gap-4">
-              {/* QUANTITY */}
               <div className="flex items-center overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm">
                 <button
-                  onClick={() => setQuantity((prev) => Math.max(1, prev - 1))}
+                  onClick={decreaseQuantity}
                   className="flex h-14 w-14 items-center justify-center text-xl text-gray-600 transition hover:bg-gray-100"
                 >
                   -
@@ -134,9 +145,7 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
                 </div>
 
                 <button
-                  onClick={() =>
-                    setQuantity((prev) => (prev < stock ? prev + 1 : prev))
-                  }
+                  onClick={increaseQuantity}
                   disabled={quantity >= stock}
                   className="flex h-14 w-14 items-center justify-center text-xl text-gray-600 transition hover:bg-gray-100 disabled:cursor-not-allowed disabled:opacity-40"
                 >
@@ -147,25 +156,14 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
 
             {/* ADD TO CART */}
             <button
-              disabled={isOutOfStock}
-              onClick={() =>
-                addToCart({
-                  id: product.id,
-                  title: product.title,
-                  price: product.price,
-                  image: product.main_image?.url || "",
-                  stock: stock,
-                  quantity: quantity, // IMPORTANT: use state
-                })
-              }
+              disabled={!canAdd}
+              onClick={(e) => handleAddToCart(e, quantity)}
               className="flex items-center justify-center gap-3 rounded-2xl bg-black px-8 py-4 text-sm font-medium text-white transition hover:scale-[1.01] hover:bg-neutral-900 disabled:cursor-not-allowed disabled:bg-gray-300"
             >
               <FaShoppingBag size={18} />
-
               {isOutOfStock ? "Out Of Stock" : `Add ${quantity} To Cart`}
             </button>
 
-            {/* STOCK TEXT */}
             {!isOutOfStock && (
               <p className="text-sm text-gray-500">
                 {stock} products available in stock
@@ -177,22 +175,18 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
           <div className="mt-12 space-y-5 border-t border-gray-100 pt-8">
             <div className="flex items-center gap-4">
               <Truck className="text-gray-700" size={22} />
-
               <div>
                 <p className="font-medium text-black">
                   Free Worldwide Shipping
                 </p>
-
                 <p className="text-sm text-gray-500">On all orders over $100</p>
               </div>
             </div>
 
             <div className="flex items-center gap-4">
               <ShieldCheck className="text-gray-700" size={22} />
-
               <div>
                 <p className="font-medium text-black">Secure Checkout</p>
-
                 <p className="text-sm text-gray-500">
                   SSL encrypted payment protection
                 </p>
