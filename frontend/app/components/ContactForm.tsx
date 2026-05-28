@@ -17,12 +17,8 @@ const ContactForm = () => {
     resolver: zodResolver(contactSchema),
   });
 
-  const onSubmit = (data: ContactFormData) => {
-    console.log("VALID DATA:", data);
-  };
-
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
+    <form className="space-y-8">
       {/* NAME */}
       <div>
         <input
