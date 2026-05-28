@@ -19,7 +19,6 @@ const ContactForm = () => {
 
   return (
     <form className="space-y-8">
-      {/* NAME */}
       <div>
         <input
           type="text"
