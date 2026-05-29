@@ -7,7 +7,7 @@
   --color-secondary: #f3ebe8;
   --color-bg-dark: #0a0a0a;
   --color-text-dark: #ededed;
-
+  --color-light: #f6f3f2;
   --font-sans: var(--font-montserrat);
 }
 
@@ -15,6 +15,7 @@
 body {
   @apply text-[var(--color-text)] antialiased;
   font-family: var(--font-sans), sans-serif;
+  background: #f3ebe8 !important;
 }
 
 /* optional dark text support only */
