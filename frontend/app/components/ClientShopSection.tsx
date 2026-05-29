@@ -21,7 +21,7 @@ const ClientShopSection = ({ products, pageCount }: any) => {
 
       <ShopGrid products={hydratedProducts} />
 
-      {hydratedProducts.length > 6 && <Pagination totalPages={pageCount} />}
+      {hydratedProducts.length > 5 && <Pagination totalPages={pageCount} />}
     </div>
   );
 };
