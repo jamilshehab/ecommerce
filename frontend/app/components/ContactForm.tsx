@@ -2,12 +2,13 @@
 
 import React, { useState } from "react";
 import PhoneInput from "react-phone-number-input/input";
+import PhoneNumberInput from "./common/PhoneInput";
 
 const ContactForm = () => {
   const [form, setForm] = useState({
     name: "",
     email: "",
-    phone: "",
+    phone: undefined as string | undefined,
     message: "",
   });
 
@@ -94,13 +95,10 @@ const ContactForm = () => {
 
       {/* PHONE */}
       <div className="w-full border border-slate-300 rounded-xl p-3 focus-within:border-black">
-        <PhoneInput
-          international
-          defaultCountry="LB"
+        <PhoneNumberInput
           value={form.phone}
-          onChange={(value) => setForm({ ...form, phone: value || "" })}
-          placeholder="Phone Number *"
-          className="w-full outline-none"
+          onChange={(value) => setForm({ ...form, phone: value })}
+          country="LB"
         />
         {errors.phone && (
           <p className="text-red-500 text-sm mt-1">{errors.phone}</p>
