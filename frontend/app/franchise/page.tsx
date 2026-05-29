@@ -5,13 +5,14 @@ import {
   HiOutlineShieldCheck,
   HiOutlineChartBar,
 } from "react-icons/hi2";
+import Link from "next/link";
 export default function FranchisePage() {
   return (
-    <main className="bg-white text-zinc-900 overflow-hidden">
+    <main className="  text-zinc-900 overflow-hidden">
       <Breadcrumb items={[{ label: "Franchise" }]} />
 
       {/* HERO */}
-      <section className="relative py-20 md:py-32 px-6 bg-zinc-50">
+      <section className="relative py-20 md:py-32 px-6 bg-white">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 md:gap-16 items-center">
           <div>
             <span className="inline-flex items-center rounded-full border border-zinc-200 bg-white px-4 py-2 text-sm font-medium text-zinc-600 shadow-sm">
@@ -29,13 +30,19 @@ export default function FranchisePage() {
             </p>
 
             <div className="mt-8 md:mt-10 flex flex-wrap gap-4">
-              <button className="px-6 py-3 md:px-8 md:py-4 rounded-2xl bg-black text-white font-medium hover:scale-[1.02] transition">
+              <Link
+                href="/franchise/apply"
+                className="border px-5 py-3 rounded-4xl border-black text-black hover:bg-black hover:text-white transition inline-block"
+              >
                 Apply for Franchise
-              </button>
+              </Link>
 
-              <button className="px-6 py-3 md:px-8 md:py-4 rounded-2xl border border-zinc-300 bg-white font-medium hover:bg-zinc-50 transition">
+              <Link
+                href="/franchise/brochure"
+                className="border px-5 py-3 rounded-4xl border-zinc-300 text-zinc-700 hover:bg-zinc-100 transition inline-block"
+              >
                 Download Brochure
-              </button>
+              </Link>
             </div>
           </div>
 
@@ -69,9 +76,9 @@ export default function FranchisePage() {
       </section>
 
       {/* WHY SELF */}
-      <section className="py-20 md:py-28 px-6 bg-white">
+      <section className="py-20 md:py-28 px-6 bg-light">
         <div className="max-w-7xl mx-auto text-center">
-          <span className="text-zinc-500 font-semibold tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm">
+          <span className="text-primary font-semibold tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm">
             Why SELF
           </span>
 

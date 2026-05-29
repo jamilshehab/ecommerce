@@ -18,7 +18,6 @@ export default async function Home() {
       <CredibilityStrip />
       <Testimonials />
       <CTA />
-      <Instagram />
     </div>
   );
 }

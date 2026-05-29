@@ -8,6 +8,7 @@ type Props = {
   onChange: (value: string | undefined) => void;
   country?: Country;
   international?: boolean;
+  placeholder?: string;
 };
 
 export default function PhoneNumberInput({
@@ -15,6 +16,7 @@ export default function PhoneNumberInput({
   onChange,
   country = "LB" as Country,
   international = false,
+  placeholder,
 }: Props) {
   return (
     <PhoneInput
@@ -22,7 +24,7 @@ export default function PhoneNumberInput({
       onChange={onChange}
       country={country}
       defaultCountry={country}
-      placeholder="Phone Number *"
+      placeholder={placeholder || "Phone Number"}
       international={international}
     />
   );

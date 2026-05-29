@@ -49,7 +49,7 @@ export default function Contact() {
             </div>
 
             {/* RIGHT FORM (SOFT LUXURY STYLE) */}
-            <div className="bg-gray-50/40 rounded-3xl p-10">
+            <div className="bg-light rounded-3xl p-10">
               <h2 className="text-2xl text-slate-700  font-light mb-8">
                 Send a message
               </h2>
