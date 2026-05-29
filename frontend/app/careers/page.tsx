@@ -1,4 +1,5 @@
 import Breadcrumb from "../components/common/BreadCrumb";
+import Link from "next/link";
 import {
   HiOutlineLightBulb,
   HiOutlineRocketLaunch,
@@ -31,13 +32,12 @@ export default function CareersPage() {
   ];
 
   return (
-    <main className="bg-white text-zinc-900 overflow-hidden">
+    <main className="text-zinc-900 overflow-hidden">
       <Breadcrumb items={[{ label: "Careers" }]} />
 
       {/* HERO */}
-      <section className="relative py-20 md:py-32 px-6  bg-secondary">
+      <section className="relative py-20 md:py-32 px-6 bg-white">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 md:gap-16 items-center">
-          {/* LEFT */}
           <div>
             <span className="inline-flex items-center rounded-full border border-zinc-200 bg-white px-4 py-2 text-sm font-medium text-zinc-600 shadow-sm">
               Join The SELF Team
@@ -55,13 +55,19 @@ export default function CareersPage() {
             </p>
 
             <div className="mt-8 md:mt-10 flex flex-wrap gap-4">
-              <button className="px-6 py-3 md:px-8 md:py-4 rounded-2xl bg-black text-white font-medium shadow-lg hover:scale-[1.02] transition">
+              <Link
+                href="#open-positions"
+                className="border px-5 py-3 rounded-4xl border-black text-white  bg-black hover:text-black hover:bg-white transition inline-block"
+              >
                 Explore Open Roles
-              </button>
+              </Link>
 
-              <button className="px-6 py-3 md:px-8 md:py-4 rounded-2xl border border-zinc-300 bg-white font-medium hover:bg-zinc-50 transition">
+              <Link
+                href="/about"
+                className="border px-5 py-3 rounded-4xl border-zinc-300 bg-white text-zinc-700 font-medium hover:bg-zinc-100 transition inline-block"
+              >
                 Learn More
-              </button>
+              </Link>
             </div>
           </div>
 
@@ -81,7 +87,7 @@ export default function CareersPage() {
               </div>
 
               <div className="col-span-2 rounded-3xl border border-zinc-200 bg-white p-6 md:p-8">
-                <p className="uppercase tracking-[0.15em] md:tracking-[0.3em] text-xs text-zinc-500">
+                <p className="uppercase tracking-[0.3em] text-xs text-zinc-500">
                   Why Join SELF
                 </p>
 
@@ -95,9 +101,9 @@ export default function CareersPage() {
       </section>
 
       {/* VALUES */}
-      <section className="py-20 md:py-28 px-6 bg-white">
+      <section className="py-20 md:py-28 px-6 bg-light">
         <div className="max-w-7xl mx-auto text-center">
-          <span className="text-zinc-500 font-semibold tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm">
+          <span className="text-zinc-500 font-semibold tracking-[0.3em] uppercase text-sm">
             Our Culture
           </span>
 
@@ -145,11 +151,11 @@ export default function CareersPage() {
       </section>
 
       {/* OPEN POSITIONS */}
-      <section className="py-20 md:py-28 px-6 bg-secondary">
+      <section id="open-positions" className="py-20 md:py-28 px-6 bg-secondary">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
             <div>
-              <span className="text-zinc-500 font-semibold tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm">
+              <span className="text-zinc-500 font-semibold tracking-[0.3em] uppercase text-sm">
                 Careers
               </span>
 
@@ -191,9 +197,12 @@ export default function CareersPage() {
                     </p>
                   </div>
 
-                  <button className="w-full sm:w-fit px-6 py-3 md:px-8 md:py-4 rounded-2xl bg-black text-white font-medium hover:scale-[1.02] transition">
-                    Apply Now
-                  </button>
+                  <Link
+                    href={`/careers/${job.title}/apply`}
+                    className="border px-5 py-3 rounded-4xl border-slate-50 text-white  bg-black hover:text-black hover:bg-white transition inline-block"
+                  >
+                    View Role →
+                  </Link>
                 </div>
               </div>
             ))}
@@ -204,7 +213,7 @@ export default function CareersPage() {
       {/* CTA */}
       <section className="py-20 md:py-28 px-6 bg-white">
         <div className="max-w-5xl mx-auto rounded-[3rem] bg-black text-white p-8 md:p-16 text-center">
-          <span className="uppercase tracking-[0.15em] md:tracking-[0.3em] text-sm text-zinc-400">
+          <span className="uppercase tracking-[0.3em] text-sm text-zinc-400">
             Start Your Journey
           </span>
 
@@ -217,9 +226,12 @@ export default function CareersPage() {
             innovate, and create meaningful experiences.
           </p>
 
-          <button className="mt-8 md:mt-10 w-full sm:w-auto px-6 py-4 md:px-10 md:py-5 rounded-2xl bg-white text-black font-semibold hover:scale-[1.03] transition">
+          <Link
+            href="mailto:careers@self.com"
+            className="border px-5 py-3  my-7 rounded-4xl border-black text-black bg-white  transition inline-block"
+          >
             careers@self.com
-          </button>
+          </Link>
         </div>
       </section>
     </main>
