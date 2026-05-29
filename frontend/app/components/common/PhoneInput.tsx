@@ -24,7 +24,7 @@ export default function PhoneNumberInput({
       onChange={onChange}
       country={country}
       defaultCountry={country}
-      placeholder={placeholder || "Phone Number"}
+      placeholder={placeholder}
       international={international}
     />
   );
