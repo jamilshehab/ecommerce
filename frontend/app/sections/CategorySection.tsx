@@ -5,7 +5,7 @@ import CategoryGrid from "../components/category/CategoryGrid";
 const CategorySection = async () => {
   const categories = await getCategories();
   return (
-    <div className="py-20">
+    <div className="py-20 bg-white">
       <CategoryGrid categories={categories} />
     </div>
   );
