@@ -10,7 +10,7 @@ export default function CategoryGrid({
   categories: Category[];
 }) {
   return (
-    <section className="max-w-6xl mx-auto py-12">
+    <section className="max-w-6xl mx-auto py-12 bg-white">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}

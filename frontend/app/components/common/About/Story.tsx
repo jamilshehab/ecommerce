@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { fadeUp } from "@/app/lib/animations/global";
 const Story = () => {
   return (
-    <section className="px-6 py-10">
+    <section className="px-6 py-10 bg-white">
       <motion.div
         initial="hidden"
         whileInView="visible"

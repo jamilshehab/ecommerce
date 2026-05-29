@@ -6,7 +6,7 @@ import Image from "next/image";
 
 const Vision = () => {
   return (
-    <section className="px-6 py-24 bg-gray-50/40">
+    <section className="px-6 py-24 bg-white">
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
         {/* IMAGE FIRST ON DESKTOP */}
         <motion.div
