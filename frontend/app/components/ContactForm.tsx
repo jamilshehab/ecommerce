@@ -15,7 +15,7 @@ const ContactForm = () => {
   const [errors, setErrors] = useState({
     name: "",
     email: "",
-    phone: "",
+    phone: undefined as string | undefined,
     message: "",
   });
 
@@ -62,7 +62,7 @@ const ContactForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-8">
+    <form onSubmit={handleSubmit} className="space-y-8 ">
       {/* NAME */}
       <div>
         <input
@@ -94,11 +94,13 @@ const ContactForm = () => {
       </div>
 
       {/* PHONE */}
-      <div className="w-full border border-slate-300 rounded-xl p-3 focus-within:border-black">
+      <div className="w-full   border-slate-300 border-b p-3 focus-within:border-black">
         <PhoneNumberInput
           value={form.phone}
           onChange={(value) => setForm({ ...form, phone: value })}
           country="LB"
+          international
+          placeholder="Phone Number *"
         />
         {errors.phone && (
           <p className="text-red-500 text-sm mt-1">{errors.phone}</p>

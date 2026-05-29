@@ -2,6 +2,8 @@
 
 import React, { useState } from "react";
 import { HiOutlineArrowUpTray, HiOutlineDocumentText } from "react-icons/hi2";
+import PhoneInput from "react-phone-number-input/input";
+import PhoneNumberInput from "./common/PhoneInput";
 
 const Apply = () => {
   const [loading, setLoading] = useState(false);
@@ -11,7 +13,7 @@ const Apply = () => {
   const [form, setForm] = useState({
     fullName: "",
     email: "",
-    phone: "",
+    phone: undefined as string | undefined,
     portfolio: "",
     message: "",
   });
@@ -179,15 +181,17 @@ const Apply = () => {
           </div>
 
           {/* PHONE */}
-          <div>
-            <input
-              type="text"
-              name="phone"
-              placeholder="Phone Number"
+          <div className="w-full   border-slate-300 border-b p-3 focus-within:border-black">
+            <PhoneNumberInput
               value={form.phone}
-              onChange={handleChange}
-              className="w-full border-b border-zinc-300 bg-transparent py-4 focus:outline-none focus:border-black transition"
+              onChange={(value) => setForm({ ...form, phone: value })}
+              country="LB"
+              international
+              placeholder="Phone Number *"
             />
+            {errors.phone && (
+              <p className="text-red-500 text-sm mt-1">{errors.phone}</p>
+            )}
           </div>
 
           {/* PORTFOLIO */}
