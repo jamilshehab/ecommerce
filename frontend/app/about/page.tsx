@@ -7,9 +7,9 @@ export default function About() {
   return (
     <main>
       <Breadcrumb items={[{ label: "About Us" }]} />
+      <Story />
       <Mission />
       <Vision />
-      <Story />
     </main>
   );
 }

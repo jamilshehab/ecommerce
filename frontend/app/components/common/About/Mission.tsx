@@ -5,7 +5,7 @@ import { fadeUp } from "@/app/lib/animations/global";
 const Mission = () => {
   return (
     <div>
-      <section className="px-6 py-10">
+      <section className="px-6 py-10 bg-secondary">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
           <motion.div
             initial="hidden"
