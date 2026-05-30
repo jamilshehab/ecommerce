@@ -3,7 +3,7 @@
 import { useCartStore } from "@/app/lib/zustand/zustand";
 import { addToCartWithValidation } from "@/app/lib/services/cart/addToCartValidationStock";
 import { useProductStore } from "@/app/hooks/useProduct";
-import { toast } from "react-toastify/unstyled";
+import { toast } from "react-toastify";
 
 type Product = {
   documentId: string;
