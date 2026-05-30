@@ -1,7 +1,5 @@
 import Breadcrumb from "../components/common/BreadCrumb";
 import ContactForm from "../components/ContactForm";
-import FullWidthMap from "../components/FullWidthMap";
-import MapSection from "../sections/MapSections";
 
 export default function Contact() {
   return (
@@ -61,8 +59,12 @@ export default function Contact() {
           </div>
         </div>
       </section>
-      <section className="-z-20">
-        <MapSection />
+      <section>
+        <iframe
+          src="https://www.google.com/maps?q=Hamra,Beirut&output=embed"
+          className="w-full h-[80vh] rounded-xl border-0"
+          loading="lazy"
+        />
       </section>
     </main>
   );
