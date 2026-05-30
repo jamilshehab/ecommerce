@@ -6,7 +6,6 @@ import Footer from "./components/common/Footer/Footer";
 import CartDrawer from "./components/cart/CartDrawer";
 import SubscribePopup from "./components/common/PopUpModal";
 import Instagram from "./components/social/Instagram";
-import ToastProvider from "./components/ui/ToastProvider";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
