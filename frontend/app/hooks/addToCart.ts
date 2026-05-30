@@ -46,9 +46,10 @@ export function useAddToCart(product: Product) {
       image: product.main_image?.url || "",
       quantity,
     });
-    toast.success("Added to cart!");
+
     // ✅ 2. open cart drawer instantly
     openCart();
+    toast.success("Added to cart!");
     useProductStore.getState().decreaseStock(product.documentId, quantity);
   };
 
