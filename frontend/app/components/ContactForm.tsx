@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import PhoneNumberInput from "./common/PhoneInput";
-import { toast } from "react-toastify";
 const ContactForm = () => {
   const [form, setForm] = useState({
     name: "",
@@ -55,8 +54,6 @@ const ContactForm = () => {
     e.preventDefault();
 
     if (!validate()) return;
-
-    toast.success("Message sent!");
   };
 
   return (
