@@ -19,7 +19,7 @@ const instagramPosts = [
 
 export default function InstagramSection() {
   return (
-    <section className="py-24 px-6 bg-[#fafafa] overflow-hidden">
+    <section className="py-24 px-6 bg-light overflow-hidden">
       <div className="max-w-7xl mx-auto">
         {/* TOP CONTENT */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
