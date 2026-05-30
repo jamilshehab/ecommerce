@@ -26,7 +26,7 @@ const Header = () => {
 
   return (
     <>
-      <header className="fixed top-4 left-1/2 -translate-x-1/2 z-100 w-full px-4">
+      <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-full px-4">
         <div className="mx-auto max-w-6xl">
           <div
             className={`relative flex items-center rounded-full border border-black/5 px-5 md:px-7 py-4 transition-all duration-300 ${
