@@ -8,6 +8,7 @@ import Footer from "./components/common/Footer/Footer";
 import CartDrawer from "./components/cart/CartDrawer";
 import SubscribePopup from "./components/common/PopUpModal";
 import Instagram from "./components/social/Instagram";
+import ToastProvider from "./components/ui/ToastProvider";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -29,23 +30,15 @@ export default function RootLayout({
   return (
     <html lang="en" className={montserrat.variable}>
       <body className="font-sans  ">
-        <Header />
-        {children}
-        <ToastContainer
-          position="top-right"
-          autoClose={5000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-        />
-        <SubscribePopup />
-        <CartDrawer />
-        <Instagram />
-        <Footer />
+        <ToastProvider>
+          <Header />
+          {children}
+
+          <SubscribePopup />
+          <CartDrawer />
+          <Instagram />
+          <Footer />
+        </ToastProvider>
       </body>
     </html>
   );
