@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import Header from "./components/common/Header/Header";
 import Footer from "./components/common/Footer/Footer";
 import CartDrawer from "./components/cart/CartDrawer";
