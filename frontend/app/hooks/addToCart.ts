@@ -3,7 +3,7 @@
 import { useCartStore } from "@/app/lib/zustand/zustand";
 import { addToCartWithValidation } from "@/app/lib/services/cart/addToCartValidationStock";
 import { useProductStore } from "@/app/hooks/useProduct";
-
+import { toast } from "react-toastify";
 type Product = {
   documentId: string;
   title: string;
@@ -46,7 +46,7 @@ export function useAddToCart(product: Product) {
       image: product.main_image?.url || "",
       quantity,
     });
-
+    toast.success("Added to cart!");
     // ✅ 2. open cart drawer instantly
     openCart();
     useProductStore.getState().decreaseStock(product.documentId, quantity);
