@@ -31,7 +31,17 @@ export default function RootLayout({
       <body className="font-sans  ">
         <Header />
         {children}
-        <ToastContainer position="top-right" />
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
         <SubscribePopup />
         <CartDrawer />
         <Instagram />
