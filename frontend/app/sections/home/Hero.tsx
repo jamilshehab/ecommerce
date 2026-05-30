@@ -9,13 +9,13 @@ import "swiper/css/effect-fade";
 
 const slides = [
   {
-    image: "/images/slider/1.jpg",
+    image: "/images/instagram/1.jpg",
   },
   {
-    image: "/images/slider/2.jpg",
+    image: "/images/instagram/2.jpg",
   },
   {
-    image: "/images/slider/3.jpg",
+    image: "/images/instagram/3.jpg",
   },
 ];
 
