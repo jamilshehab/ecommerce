@@ -5,9 +5,7 @@ import { HiOutlineArrowUpTray, HiOutlineDocumentText } from "react-icons/hi2";
 import PhoneNumberInput from "./common/PhoneInput";
 const Apply = () => {
   const [loading, setLoading] = useState(false);
-
   const [cvFile, setCvFile] = useState<File | null>(null);
-
   const [form, setForm] = useState({
     fullName: "",
     email: "",
