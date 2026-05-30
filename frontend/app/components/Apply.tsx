@@ -78,11 +78,6 @@ const Apply = () => {
 
     if (!validate()) return;
 
-    console.log("APPLICATION:", {
-      ...form,
-      cv: cvFile,
-    });
-
     toast.success("Application submitted successfully!");
 
     // Reset form
