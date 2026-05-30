@@ -2,8 +2,8 @@
 
 import React, { useState } from "react";
 import { HiOutlineArrowUpTray, HiOutlineDocumentText } from "react-icons/hi2";
-import PhoneInput from "react-phone-number-input/input";
 import PhoneNumberInput from "./common/PhoneInput";
+import { toast } from "react-toastify/unstyled";
 
 const Apply = () => {
   const [loading, setLoading] = useState(false);
@@ -83,7 +83,17 @@ const Apply = () => {
       cv: cvFile,
     });
 
-    alert("Application submitted successfully ✨");
+    toast.success("Application submitted successfully!");
+
+    // Reset form
+    setForm({
+      fullName: "",
+      email: "",
+      phone: undefined,
+      portfolio: "",
+      message: "",
+    });
+    setCvFile(null);
   };
 
   return (
