@@ -9,12 +9,12 @@ import { FiInstagram } from "react-icons/fi";
 import "swiper/css";
 
 const instagramPosts = [
-  "/images/instagram/1.jpg",
   "/images/instagram/2.jpg",
   "/images/instagram/3.jpg",
   "/images/instagram/4.jpg",
   "/images/instagram/5.jpg",
   "/images/instagram/6.jpg",
+  "/images/instagram/7.jpg",
 ];
 
 export default function InstagramSection() {
@@ -39,13 +39,12 @@ export default function InstagramSection() {
           </div>
 
           <Link
-            href="https://instagram.com"
+            href="https://www.instagram.com/self.ldn/"
             target="_blank"
             className="group inline-flex items-center gap-3 text-sm border border-black/10 rounded-full px-6 py-3 hover:bg-black hover:text-white transition-all duration-300 w-fit"
           >
             <FiInstagram className="text-lg" />
-
-            <span>@self.official</span>
+            <span>Visit Instagram</span>
           </Link>
         </div>
 
@@ -74,24 +73,31 @@ export default function InstagramSection() {
         >
           {instagramPosts.map((image, index) => (
             <SwiperSlide key={index}>
-              <div className="group relative aspect-[4/5] overflow-hidden rounded-3xl bg-gray-100">
-                <Image
-                  src={image}
-                  alt="Instagram Post"
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                />
+              {/* WRAPPED IN LINK */}
+              <Link
+                href="https://www.instagram.com/self.ldn/"
+                target="_blank"
+                className="block"
+              >
+                <div className="group relative aspect-[4/5] overflow-hidden rounded-3xl bg-gray-100">
+                  <Image
+                    src={image}
+                    alt="Instagram Post"
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
 
-                {/* OVERLAY */}
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition duration-500" />
+                  {/* OVERLAY */}
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition duration-500" />
 
-                {/* ICON */}
-                <div className="absolute bottom-5 left-5 opacity-0 group-hover:opacity-100 transition duration-500">
-                  <div className="bg-white/90 backdrop-blur-md rounded-full p-3">
-                    <FiInstagram className="text-black text-lg" />
+                  {/* ICON */}
+                  <div className="absolute bottom-5 left-5 opacity-0 group-hover:opacity-100 transition duration-500">
+                    <div className="bg-white/90 backdrop-blur-md rounded-full p-3">
+                      <FiInstagram className="text-black text-lg" />
+                    </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             </SwiperSlide>
           ))}
         </Swiper>
