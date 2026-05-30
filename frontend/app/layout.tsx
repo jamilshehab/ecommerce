@@ -31,7 +31,6 @@ export default function RootLayout({
         <ToastProvider>
           <Header />
           {children}
-
           <SubscribePopup />
           <CartDrawer />
           <Instagram />
