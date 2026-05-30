@@ -99,7 +99,7 @@ jobs:
             cd /home/${{ secrets.PRODUCTION_SSH_USER }}/${{ secrets.PRODUCTION_PORTAL_PATH }}
 
             echo "📦 Installing dependencies..."
-            npm install --omit=dev --prefer-offline
+            npm install
 
       - name: Skip install (no dependency changes)
         if: steps.package_changes.outputs.changed == 'false'
