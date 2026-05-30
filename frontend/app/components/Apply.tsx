@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import { HiOutlineArrowUpTray, HiOutlineDocumentText } from "react-icons/hi2";
 import PhoneNumberInput from "./common/PhoneInput";
-import { toast } from "react-toastify";
 const Apply = () => {
   const [loading, setLoading] = useState(false);
 
@@ -76,8 +75,6 @@ const Apply = () => {
     e.preventDefault();
 
     if (!validate()) return;
-
-    toast.success("Application submitted successfully!");
 
     // Reset form
     setForm({
