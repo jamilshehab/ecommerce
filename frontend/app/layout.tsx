@@ -28,12 +28,14 @@ export default function RootLayout({
   return (
     <html lang="en" className={montserrat.variable}>
       <body className="font-sans  ">
-        <Header />
-        {children}
-        <SubscribePopup />
-        <CartDrawer />
-        <Instagram />
-        <Footer />
+        <ToastProvider>
+          <Header />
+          {children}
+          <SubscribePopup />
+          <CartDrawer />
+          <Instagram />
+          <Footer />
+        </ToastProvider>
       </body>
     </html>
   );
