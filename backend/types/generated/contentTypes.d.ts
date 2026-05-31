@@ -700,33 +700,6 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiSubscribeSubscribe extends Struct.CollectionTypeSchema {
-  collectionName: 'subscribes';
-  info: {
-    displayName: 'Subscribe';
-    pluralName: 'subscribes';
-    singularName: 'subscribe';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::subscribe.subscribe'
-    > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
 export interface ApiTagTag extends Struct.CollectionTypeSchema {
   collectionName: 'tags';
   info: {
@@ -776,6 +749,7 @@ export interface ApiWhatsappSubscribtionWhatsappSubscribtion
       'api::whatsapp-subscribtion.whatsapp-subscribtion'
     > &
       Schema.Attribute.Private;
+    phone_number: Schema.Attribute.Text;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1302,7 +1276,6 @@ declare module '@strapi/strapi' {
       'api::home.home': ApiHomeHome;
       'api::order.order': ApiOrderOrder;
       'api::product.product': ApiProductProduct;
-      'api::subscribe.subscribe': ApiSubscribeSubscribe;
       'api::tag.tag': ApiTagTag;
       'api::whatsapp-subscribtion.whatsapp-subscribtion': ApiWhatsappSubscribtionWhatsappSubscribtion;
       'plugin::content-releases.release': PluginContentReleasesRelease;

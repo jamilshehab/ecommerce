@@ -81,9 +81,9 @@ export default function SubscribePopup() {
             Skincare Rituals
           </p>
 
-          <h2 className="text-3xl text-slate-700 md:text-4xl font-light mt-3 leading-tight">
+          <h1 className="text-3xl text-black md:text-4xl  font-bold mt-3 leading-tight">
             Elevate your skincare ritual
-          </h2>
+          </h1>
 
           <p className="text-gray-600 mt-4 text-sm leading-relaxed">
             Join our exclusive community and receive curated skincare insights,
