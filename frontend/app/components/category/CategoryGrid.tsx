@@ -9,29 +9,6 @@ export default function CategoryGrid({
 }: {
   categories: Category[];
 }) {
-  const slides = [
-    {
-      title: "Hydrating Mists and Oils",
-      subtitle: "Have a great hair summer.",
-      button: "SHOP NOW",
-      image: "/images/card-1.jpg",
-      bg: "bg-[#d9e2f3]",
-    },
-    {
-      title: "Makeup-Friendly Sunscreens",
-      subtitle: "Made to layer. Easy to reapply.",
-      button: "FIND YOUR MATCH",
-      image: "/images/card-2.jpg",
-      bg: "bg-black text-white",
-    },
-    {
-      title: "Just In from Hourglass",
-      subtitle: "Get the perfect blurred lip with this ultra-silky formula.",
-      button: "SHOP NOW",
-      image: "/images/card-3.jpg",
-      bg: "bg-[#e9e3dc]",
-    },
-  ];
   return (
     <section className="max-w-6xl mx-auto py-12 bg-white">
       <motion.div

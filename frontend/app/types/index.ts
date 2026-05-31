@@ -86,4 +86,7 @@ export type Category = {
   title: string;
   slug?: string;
   image?: string;
+  backgroundColor?: string;
+  subtitle: string;
+  linkTitle: string;
 };
