@@ -1,7 +1,6 @@
 "use client";
 
-import { Button } from "@/app/components/ui/Button";
-import { Subtitle, Text, Title } from "@/app/components/ui/Typography";
+import { Text, H3, H2 } from "@/app/components/ui/Typography";
 import { motion, Variants } from "framer-motion";
 import Link from "next/link";
 
@@ -42,20 +41,18 @@ export default function BrandStory() {
       >
         {/* Small label */}
         <motion.div variants={item}>
-          <Subtitle>
-            <span className="text-slate-600 uppercase tracking-widest text-sm">
-              Our Philosophy
-            </span>
-          </Subtitle>
+          <H3>
+            <span className="text-black ">Our Philosophy</span>
+          </H3>
         </motion.div>
 
         {/* Main title */}
         <motion.div variants={item}>
-          <Title>
+          <H2>
             <span className="text-primary">
               Beauty is not created it is revealed
             </span>
-          </Title>
+          </H2>
         </motion.div>
 
         {/* Body text */}

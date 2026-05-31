@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { HiOutlineArrowUpTray, HiOutlineDocumentText } from "react-icons/hi2";
 import { toast } from "react-toastify";
 import PhoneNumberInput from "./common/PhoneInput";
+import { H2 } from "./ui/Typography";
 const Apply = () => {
   const [loading, setLoading] = useState(false);
   const [cvFile, setCvFile] = useState<File | null>(null);
@@ -96,9 +97,9 @@ const Apply = () => {
             Careers
           </span>
 
-          <h1 className="mt-4 text-4xl md:text-6xl font-black leading-tight">
-            Apply With SELF
-          </h1>
+          <H2>
+            <span className="text-primary">Apply With SELF</span>
+          </H2>
 
           <p className="mt-6 text-zinc-600 max-w-2xl mx-auto leading-relaxed">
             Upload your CV and tell us more about yourself. We’re always looking
@@ -112,42 +113,6 @@ const Apply = () => {
           className="mt-14 bg-white border border-zinc-200 rounded-[2.5rem] p-8 md:p-12 shadow-sm space-y-8"
         >
           {/* CV UPLOAD */}
-          <div>
-            <label className="block text-sm font-medium text-zinc-700 mb-4">
-              Upload Your CV
-            </label>
-
-            <label className="relative flex flex-col items-center justify-center rounded-[2rem] border border-dashed border-zinc-300 bg-zinc-50 p-10 cursor-pointer hover:bg-zinc-100 transition">
-              <input
-                type="file"
-                accept=".pdf"
-                onChange={handleCVUpload}
-                className="hidden"
-              />
-
-              <div className="w-16 h-16 rounded-2xl bg-white flex items-center justify-center shadow-sm">
-                <HiOutlineArrowUpTray className="text-2xl text-zinc-800" />
-              </div>
-
-              <h3 className="mt-6 text-lg font-semibold text-zinc-900">
-                Drag & Drop Your CV
-              </h3>
-
-              <p className="mt-2 text-sm text-zinc-500">PDF files only</p>
-
-              {loading && (
-                <p className="mt-4 text-sm text-black">Reading your CV...</p>
-              )}
-
-              {cvFile && !loading && (
-                <div className="mt-6 flex items-center gap-3 rounded-2xl bg-white px-4 py-3 border border-zinc-200">
-                  <HiOutlineDocumentText className="text-xl text-zinc-700" />
-
-                  <span className="text-sm text-zinc-700">{cvFile.name}</span>
-                </div>
-              )}
-            </label>
-          </div>
 
           {/* FULL NAME */}
           <div>
@@ -206,7 +171,42 @@ const Apply = () => {
               className="w-full border-b border-zinc-300 bg-transparent py-4 focus:outline-none focus:border-black transition"
             />
           </div>
+          <div>
+            <label className="block text-sm font-medium text-zinc-700 mb-4">
+              Upload Your CV
+            </label>
 
+            <label className="relative flex flex-col items-center justify-center rounded-[2rem] border border-dashed border-zinc-300 bg-zinc-50 p-10 cursor-pointer hover:bg-zinc-100 transition">
+              <input
+                type="file"
+                accept=".pdf"
+                onChange={handleCVUpload}
+                className="hidden"
+              />
+
+              <div className="w-16 h-16 rounded-2xl bg-white flex items-center justify-center shadow-sm">
+                <HiOutlineArrowUpTray className="text-2xl text-zinc-800" />
+              </div>
+
+              <h3 className="mt-6 text-lg font-semibold text-zinc-900">
+                Drag & Drop Your CV
+              </h3>
+
+              <p className="mt-2 text-sm text-zinc-500">PDF files only</p>
+
+              {loading && (
+                <p className="mt-4 text-sm text-black">Reading your CV...</p>
+              )}
+
+              {cvFile && !loading && (
+                <div className="mt-6 flex items-center gap-3 rounded-2xl bg-white px-4 py-3 border border-zinc-200">
+                  <HiOutlineDocumentText className="text-xl text-zinc-700" />
+
+                  <span className="text-sm text-zinc-700">{cvFile.name}</span>
+                </div>
+              )}
+            </label>
+          </div>
           {/* MESSAGE */}
           <div>
             <textarea

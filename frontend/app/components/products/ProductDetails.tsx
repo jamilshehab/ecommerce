@@ -11,6 +11,7 @@ import { FaShoppingBag } from "react-icons/fa";
 import { useAddToCart } from "@/app/hooks/addToCart";
 import { useProductStock } from "@/app/hooks/useProductStock";
 import { useHydrateProduct } from "@/app/hooks/useHydrateProduct"; // ✅ ADD THIS
+import { H2 } from "../ui/Typography";
 
 type ProductDetailsProps = {
   product: Product;
@@ -113,9 +114,9 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
             {product.category?.title}
           </span>
 
-          <h1 className="text-4xl text-capitalize font-bold leading-tight text-black md:text-5xl">
-            {product.title}
-          </h1>
+          <H2>
+            <span className="text-primary">{product.title}</span>
+          </H2>
 
           <div className="mt-8 flex items-end gap-4">
             <span className="text-4xl font-bold text-black">

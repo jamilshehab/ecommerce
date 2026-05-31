@@ -3,6 +3,7 @@
 import { fadeUp } from "@/app/lib/animations/global";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { H2, H3 } from "../../ui/Typography";
 
 const Vision = () => {
   return (
@@ -33,12 +34,16 @@ const Vision = () => {
           transition={{ duration: 0.6 }}
           className="md:order-2"
         >
-          <p className="text-xs tracking-[0.3em] text-gray-400 uppercase">
-            Vision
-          </p>
-          <h2 className="mt-3 text-3xl font-light text-slate-700">
-            Building a global creative identity
-          </h2>
+          <H3>
+            <span className="text-primary">Our Vision</span>
+          </H3>
+          <div className="mt-4">
+            <H2>
+              <span className="text-primary">
+                Building a global creative identity
+              </span>
+            </H2>
+          </div>
 
           <p className="mt-6 text-gray-600 leading-relaxed">
             To become a leading regional brand recognized globally for

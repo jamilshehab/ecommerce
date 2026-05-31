@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { fadeUp } from "@/app/lib/animations/global";
+import { H2, H3 } from "../../ui/Typography";
 const Mission = () => {
   return (
     <div>
@@ -14,13 +15,16 @@ const Mission = () => {
             variants={fadeUp}
             transition={{ duration: 0.6 }}
           >
-            <p className="text-xs tracking-[0.3em] text-gray-400 uppercase">
-              Mission
-            </p>
-            <h2 className="mt-3 text-3xl text-slate-700 font-light">
-              Designing identity through culture
-            </h2>
-
+            <H3>
+              <span className="text-primary">Our Mission</span>
+            </H3>
+            <div className="mt-4">
+              <H2>
+                <span className="text-primary">
+                  Designing identity through culture
+                </span>
+              </H2>
+            </div>
             <p className="mt-6 text-gray-600 leading-relaxed">
               To create a modern lifestyle brand that empowers self-expression
               through culture, fashion, and identity. Every piece we build

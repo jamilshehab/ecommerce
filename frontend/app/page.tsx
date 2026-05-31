@@ -6,14 +6,13 @@ import CredibilityStrip from "./sections/home/CredibilityStrip";
 import Testimonials from "./sections/home/Testimonials";
 import CTA from "./sections/home/Cta";
 import Instagram from "./components/social/Instagram";
-import SwiperVersionTwo from "./sections/home/SwiperVersionTwo";
 
 export const dynamic = "force-dynamic";
 
 export default async function Home() {
   return (
     <div className=" ">
-      <SwiperVersionTwo />
+      <HeroSwiper />
       <BrandStory />
       <FeaturedProducts />
       <CredibilityStrip />

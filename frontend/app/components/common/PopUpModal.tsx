@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { createSubscribe } from "@/app/lib/services/subscribe";
-
+import { toast } from "react-toastify";
 export default function SubscribePopup() {
   const [open, setOpen] = useState(false);
   const [email, setEmail] = useState("");
@@ -28,14 +28,13 @@ export default function SubscribePopup() {
       setLoading(true);
 
       await createSubscribe(email);
-
-      alert("Subscribed successfully 🎉");
+      toast.success("Subscribed successfully 🎉");
 
       setEmail("");
       setOpen(false);
     } catch (err) {
       console.error("Subscribe Error:", err);
-      alert("Subscription failed");
+      toast.error("Enter The Required Field");
     } finally {
       setLoading(false);
     }
@@ -81,7 +80,7 @@ export default function SubscribePopup() {
             Skincare Rituals
           </p>
 
-          <h1 className="text-3xl text-black md:text-4xl  font-bold mt-3 leading-tight">
+          <h1 className="text-3xl text-black md:text-4xl  font-extrabold mt-3 leading-tight">
             Elevate your skincare ritual
           </h1>
 
@@ -89,7 +88,7 @@ export default function SubscribePopup() {
             Join our exclusive community and receive curated skincare insights,
             early access to drops, and private offers crafted for radiant skin.
           </p>
-
+         
           {/* Form */}
           <form onSubmit={handleSubmit} className="mt-8 flex flex-col gap-3">
             <button

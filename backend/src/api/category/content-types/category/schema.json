@@ -33,6 +33,15 @@
       "relation": "oneToMany",
       "target": "api::product.product",
       "mappedBy": "category"
+    },
+    "subtitle": {
+      "type": "text"
+    },
+    "backgroundColor": {
+      "type": "string"
+    },
+    "linkTitle": {
+      "type": "string"
     }
   }
 }

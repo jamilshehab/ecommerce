@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { fadeUp } from "@/app/lib/animations/global";
+import { H2, H3 } from "../../ui/Typography";
 const Story = () => {
   return (
     <section className="px-6 py-10 bg-white">
@@ -11,13 +12,16 @@ const Story = () => {
         variants={fadeUp}
         className="max-w-4xl mx-auto text-center"
       >
-        <p className="text-xs tracking-[0.3em] text-gray-400 uppercase">
-          Story
-        </p>
-
-        <h2 className="mt-3 text-3xl text-slate-700 font-light">
-          Where it started
-        </h2>
+        <H3>
+          <span className="text-black ">Our Story</span>
+        </H3>
+        <div className="mt-4">
+          <H2>
+            <span className="text-primary">
+              Beauty is not created it is revealed
+            </span>
+          </H2>
+        </div>
 
         <p className="mt-6 text-gray-600 leading-relaxed">
           Founded with a vision in Iraq and expanding to Lebanon, SELF

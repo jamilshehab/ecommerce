@@ -7,6 +7,7 @@ import { Autoplay } from "swiper/modules";
 import { FiInstagram } from "react-icons/fi";
 
 import "swiper/css";
+import { H2, H3 } from "../../ui/Typography";
 
 const instagramPosts = [
   "/images/instagram/2.jpg",
@@ -24,15 +25,16 @@ export default function InstagramSection() {
         {/* TOP CONTENT */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
           <div>
-            <p className="text-xs uppercase tracking-[0.3em] text-gray-400">
-              Social Presence
-            </p>
+            <H3>
+              <span className="text-gray-400"> Social Presence</span>
+            </H3>
+            <div className="mt-4">
+              <H2>
+                <span className="text-primary">Follow Us on Instagram</span>
+              </H2>
+            </div>
 
-            <h2 className="mt-3 text-4xl md:text-5xl font-light tracking-tight">
-              Follow Us on Instagram
-            </h2>
-
-            <p className="mt-4 text-gray-500 max-w-xl leading-relaxed">
+            <p className="mt-6 text-gray-500 max-w-xl leading-relaxed">
               Discover our latest collections, lifestyle moments, and the world
               behind SELF.
             </p>

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Breadcrumb from "../components/common/BreadCrumb";
 import ContactForm from "../components/ContactForm";
 
@@ -18,7 +19,12 @@ export default function Contact() {
                 <p className="text-xs tracking-widest text-gray-400 uppercase">
                   Email
                 </p>
-                <p className="mt-2 text-lg text-gray-800">info@selflondon.co</p>
+                <Link href="mailto:hello@selflondon.co">
+                  hello@selflondon.co
+                </Link>
+                <Link href="mailto:operation@selflondon.co">
+                  operation@selflondon.co
+                </Link>
               </div>
 
               {/* OUTLETS */}

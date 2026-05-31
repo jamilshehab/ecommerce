@@ -5,6 +5,7 @@ import { useState } from "react";
 import ProductCard from "./ProductCard";
 import ProductModal from "./ProductModal";
 import { Product } from "@/app/types";
+import { H2 } from "../ui/Typography";
 
 /* =========================
    Motion Variants (Typed)
@@ -61,9 +62,9 @@ const ProductsGrid = ({ products }: { products: Product[] }) => {
           viewport={{ once: true, amount: 0.2 }}
           className="text-center mb-20"
         >
-          <h2 className="text-5xl font-semibold tracking-tight">
-            Featured Collection
-          </h2>
+          <H2>
+            <span className="text-primary">Featured Collection</span>
+          </H2>
           <p className="text-gray-500 mt-4 text-lg">
             Elevated essentials crafted for modern luxury
           </p>
