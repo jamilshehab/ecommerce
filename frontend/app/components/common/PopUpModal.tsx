@@ -56,11 +56,11 @@ export default function SubscribePopup() {
         {/* Image Side */}
         <div className="hidden md:block relative">
           <Image
-            src="/images/instagram/1.jpg"
+            src="/images/subscribe.jpeg"
             height={500}
             width={500}
             alt="skincare"
-            className="h-full w-full object-cover"
+            className="object-cover"
           />
 
           <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
@@ -92,14 +92,6 @@ export default function SubscribePopup() {
 
           {/* Form */}
           <form onSubmit={handleSubmit} className="mt-8 flex flex-col gap-3">
-            <input
-              type="email"
-              placeholder="Enter your email address"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="border border-gray-200 bg-white/70 text-slate-700 p-4 rounded-xl outline-none focus:ring-1 focus:ring-black transition"
-            />
-
             <button
               type="submit"
               disabled={loading}

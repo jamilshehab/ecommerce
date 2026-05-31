@@ -1,0 +1,14 @@
+{
+  "kind": "collectionType",
+  "collectionName": "whatsapp_subscribtions",
+  "info": {
+    "singularName": "whatsapp-subscribtion",
+    "pluralName": "whatsapp-subscribtions",
+    "displayName": "Whatsapp Subscribtion"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {}
+}
