@@ -109,13 +109,15 @@ export default function CareersPage() {
       {/* VALUES */}
       <section className="py-20 md:py-28 px-6 bg-light">
         <div className="max-w-7xl mx-auto text-center">
-          <span className="text-zinc-500 font-semibold tracking-[0.3em] uppercase text-sm">
-            Our Culture
-          </span>
+          <H3>
+            <span className="text-gray-400"> Our Culture</span>
+          </H3>
 
-          <h2 className="mt-5 text-3xl md:text-4xl lg:text-5xl font-black">
-            What Makes SELF Different
-          </h2>
+          <div className="my-4">
+            <H2>
+              <span className="primary">A Culture of Creativity & Growth</span>
+            </H2>
+          </div>
 
           <div className="mt-14 md:mt-16 grid md:grid-cols-3 gap-6 md:gap-8">
             {[
@@ -137,13 +139,13 @@ export default function CareersPage() {
             ].map((item, i) => (
               <div
                 key={i}
-                className="rounded-[2rem] border border-zinc-200 bg-white p-6 md:p-10 shadow-sm hover:-translate-y-2 transition"
+                className="rounded-[2rem] border border-light bg-white p-6 md:p-10 shadow-sm hover:-translate-y-2 transition"
               >
-                <div className="w-14 h-14 rounded-2xl bg-zinc-100 flex items-center justify-center text-2xl text-zinc-900 mx-auto">
+                <div className="w-14 h-14 rounded-2xl bg-light flex items-center justify-center text-2xl text-zinc-900 mx-auto">
                   {item.icon}
                 </div>
 
-                <h3 className="mt-6 md:mt-8 text-xl md:text-2xl font-bold">
+                <h3 className="mt-6 md:mt-8 text-xl md:text-2xl  ">
                   {item.title}
                 </h3>
 
@@ -159,22 +161,15 @@ export default function CareersPage() {
       {/* OPEN POSITIONS */}
       <section id="open-positions" className="py-20 md:py-28 px-6 bg-secondary">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-            <div>
-              <span className="text-zinc-500 font-semibold tracking-[0.3em] uppercase text-sm">
-                Careers
-              </span>
-
-              <H2>
-                <span className="text-primary">Open Positions</span>
-              </H2>
-            </div>
-
-            <p className="text-zinc-600 max-w-lg leading-relaxed text-sm md:text-base">
-              Explore exciting opportunities and become part of a team shaping
-              the future of premium brand experiences.
-            </p>
+          <div className="my-4 text-center">
+            <H2>
+              <span className="text-primary">Open Positions</span>
+            </H2>
           </div>
+          <p className="   text-center  ">
+            Explore exciting opportunities and become part of a team shaping the
+            future of premium brand experiences.
+          </p>
 
           <div className="mt-14 md:mt-16 space-y-6">
             {jobs.map((job, i) => (
@@ -194,9 +189,9 @@ export default function CareersPage() {
                       </span>
                     </div>
 
-                    <h3 className="text-2xl md:text-3xl font-bold leading-snug">
-                      {job.title}
-                    </h3>
+                    <H3>
+                      <span className="!text-primary">{job.title}</span>
+                    </H3>
 
                     <p className="mt-4 text-zinc-600 leading-relaxed max-w-2xl text-sm md:text-base">
                       {job.description}
@@ -227,7 +222,7 @@ export default function CareersPage() {
             Ready To Grow With SELF?
           </h2>
 
-          <p className="mt-6 text-zinc-400 max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
+          <p className="mt-6 !text-white max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
             We’re always looking for ambitious people ready to contribute,
             innovate, and create meaningful experiences.
           </p>

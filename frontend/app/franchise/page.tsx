@@ -67,13 +67,16 @@ export default function FranchisePage() {
               </div>
 
               <div className="col-span-2 rounded-3xl border border-zinc-200 p-6 md:p-8 bg-white">
-                <p className="uppercase tracking-[0.15em] md:tracking-[0.3em] text-xs text-zinc-500">
-                  Franchise Model
-                </p>
+                <H3>
+                  <span className=""> Franchise Model</span>
+                </H3>
 
-                <p>
-                  A scalable business system built for modern lifestyle retail.
-                </p>
+                <div className="mt-3">
+                  <p>
+                    A scalable business system built for modern lifestyle
+                    retail.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -81,7 +84,7 @@ export default function FranchisePage() {
       </section>
 
       {/* WHY   SELF */}
-      <section className="py-20 md:py-28 px-6 bg-light">
+      <section className="py-20   px-6 bg-light">
         <div className="max-w-7xl mx-auto text-center">
           <H3>
             <span className="text-gray-400">Why SELF</span>
@@ -117,9 +120,9 @@ export default function FranchisePage() {
             ].map((item, i) => (
               <div
                 key={i}
-                className="rounded-[2rem] border border-zinc-200 bg-white p-6 md:p-10 shadow-sm hover:-translate-y-2 transition"
+                className="rounded-[2rem] border border-light bg-white p-6 md:p-10 shadow-sm hover:-translate-y-2 transition"
               >
-                <div className="w-14 h-14 rounded-2xl bg-zinc-100 flex items-center justify-center mx-auto text-2xl text-zinc-900">
+                <div className="w-14 h-14 rounded-2xl bg-light flex items-center justify-center mx-auto text-2xl text-zinc-900">
                   {item.icon}
                 </div>
 
@@ -137,7 +140,7 @@ export default function FranchisePage() {
       </section>
 
       {/* PROCESS */}
-      <section className="py-20 md:py-28 px-6 bg-zinc-50">
+      <section className="py-20   px-6 bg-secondary">
         <div className="max-w-7xl mx-auto">
           <div className="text-center">
             <H3>

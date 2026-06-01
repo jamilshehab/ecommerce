@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { Category } from "@/app/types";
 import { getStrapiImage } from "@/app/lib/services/common";
 import CustomImage from "../common/CustomImage";
+import { H3 } from "../ui/Typography";
 
 export default function CategoryVersionTwo({
   categories,
@@ -49,12 +50,12 @@ export default function CategoryVersionTwo({
                   </div>
 
                   {/* Content */}
-                  <div className="p-5 sm:p-6 lg:p-8 bg-black">
-                    <h2 className="text-xl text-white sm:text-2xl font-bold mb-2">
-                      {category.name}
-                    </h2>
+                  <div className="p-5 sm:p-6 lg:p-8 bg-black categ-sec">
+                    <H3>
+                      <span className="!text-white">{category.name}</span>
+                    </H3>
 
-                    <p className="text-sm text-white sm:text-base mb-5 opacity-90">
+                    <p className="text-sm !text-white sm:text-base mb-5 opacity-90">
                       {category.subtitle}
                     </p>
 

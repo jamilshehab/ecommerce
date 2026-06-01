@@ -105,7 +105,7 @@ const Apply = () => {
 
           <div className="mt-4">
             <p className="mt-6 text-zinc-600 max-w-2xl mx-auto leading-relaxed">
-              Upload your CV and tell us more about your SELF. We’re always
+              Upload your CV and tell us more about your self We’re always
               looking for creative and ambitious people.
             </p>
           </div>
@@ -216,7 +216,7 @@ const Apply = () => {
             <textarea
               name="message"
               rows={5}
-              placeholder="Tell us about your  SELF..."
+              placeholder="Tell us about your self..."
               value={form.message}
               onChange={handleChange}
               className="w-full border-b border-zinc-300 bg-transparent py-4 focus:outline-none focus:border-black transition resize-none"
@@ -230,7 +230,7 @@ const Apply = () => {
           {/* SUBMIT */}
           <button
             type="submit"
-            className="w-full rounded-2xl bg-black py-4 text-white font-medium hover:scale-[1.01] transition"
+            className="w-full cursor-pointer rounded-2xl bg-black py-4 text-white font-medium hover:scale-[1.01] transition"
           >
             Submit Application
           </button>

@@ -37,12 +37,12 @@ export default function BrandStory() {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.15 }}
-        className="max-w-5xl mx-auto text-center space-y-10"
+        className="max-w-5xl mx-auto text-center space-y-8"
       >
         {/* Small label */}
         <motion.div variants={item}>
           <H3>
-            <span className="text-black ">Our Philosophy</span>
+            <span className="text-black   ">Our Philosophy</span>
           </H3>
         </motion.div>
 
