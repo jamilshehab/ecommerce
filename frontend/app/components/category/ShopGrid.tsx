@@ -11,7 +11,7 @@ const ShopGrid = ({ products }: { products: Product[] }) => {
   const [selected, setSelected] = useState<Product | null>(null);
 
   return (
-    <section>
+    <section className="">
       <div className="container mx-auto max-w-6xl  ">
         <motion.div
           variants={container}

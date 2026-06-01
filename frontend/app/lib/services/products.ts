@@ -45,3 +45,16 @@ export async function getProductBySlug(slug: string) {
 
   return data.data?.[0] || null;
 }
+
+export async function getFeaturedProductsNew() {
+  const res = await fetchAPI<any>(
+    `/products?filters[isFeatured][$eq]=true&populate[main_image]=true&populate[category]=true&sort=createdAt:desc`,
+    {
+      cache: "no-store",
+    },
+  );
+
+  return {
+    products: res.data ?? [],
+  };
+}

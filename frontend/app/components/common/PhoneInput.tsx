@@ -9,6 +9,7 @@ type Props = {
   country?: Country;
   international?: boolean;
   placeholder?: string;
+  className?: string;
 };
 
 export default function PhoneNumberInput({
@@ -17,6 +18,7 @@ export default function PhoneNumberInput({
   country = "LB" as Country,
   international = false,
   placeholder,
+  className,
 }: Props) {
   return (
     <PhoneInput
@@ -26,6 +28,7 @@ export default function PhoneNumberInput({
       defaultCountry={country}
       placeholder={placeholder}
       international={international}
+      className={className}
     />
   );
 }

@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { HiOutlineArrowUpTray, HiOutlineDocumentText } from "react-icons/hi2";
 import { toast } from "react-toastify";
 import PhoneNumberInput from "./common/PhoneInput";
-import { H2 } from "./ui/Typography";
+import { H2, H3 } from "./ui/Typography";
 const Apply = () => {
   const [loading, setLoading] = useState(false);
   const [cvFile, setCvFile] = useState<File | null>(null);
@@ -93,18 +93,22 @@ const Apply = () => {
       <div className="max-w-3xl mx-auto">
         {/* HEADER */}
         <div className="text-center">
-          <span className="uppercase tracking-[0.3em] text-xs text-zinc-500">
-            Careers
-          </span>
+          <H3>
+            <span className="text-gray-500 text-uppercase"> Careers</span>
+          </H3>
 
-          <H2>
-            <span className="text-primary">Apply With SELF</span>
-          </H2>
+          <div className="mt-4">
+            <H2>
+              <span className="text-primary">Apply With SELF</span>
+            </H2>
+          </div>
 
-          <p className="mt-6 text-zinc-600 max-w-2xl mx-auto leading-relaxed">
-            Upload your CV and tell us more about yourself. We’re always looking
-            for creative and ambitious people.
-          </p>
+          <div className="mt-4">
+            <p className="mt-6 text-zinc-600 max-w-2xl mx-auto leading-relaxed">
+              Upload your CV and tell us more about yourself. We’re always
+              looking for creative and ambitious people.
+            </p>
+          </div>
         </div>
 
         {/* FORM */}

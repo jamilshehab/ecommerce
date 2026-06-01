@@ -16,7 +16,7 @@ export default function CartSection() {
 
   if (cart.length === 0) {
     return (
-      <div className="flex min-h-screen py-52 flex-col items-center justify-center">
+      <div className="flex bg-white min-h-screen py-52 flex-col items-center justify-center">
         <h1 className="text-2xl font-semibold">Your cart is empty 🛒</h1>
         <Link
           href="/"
@@ -29,7 +29,7 @@ export default function CartSection() {
   }
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-12">
+    <div className="mx-auto bg-white max-w-6xl px-4 py-12">
       <div className="grid gap-6 lg:grid-cols-3">
         {/* LEFT: ITEMS */}
         <div className="lg:col-span-2 space-y-4">
@@ -113,7 +113,7 @@ export default function CartSection() {
                 ================================ */}
                 <button
                   onClick={() => handleRemoveFromCart(item.documentId)}
-                  className="text-gray-400 hover:text-red-500 transition ml-2"
+                  className="text-gray-400 cursor-pointer hover:text-red-500 transition ml-2"
                 >
                   <X size={18} />
                 </button>

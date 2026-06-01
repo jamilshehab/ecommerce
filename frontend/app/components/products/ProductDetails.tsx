@@ -110,9 +110,9 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
           transition={{ duration: 0.6 }}
           className="flex flex-col justify-center"
         >
-          <span className="mb-4 text-sm uppercase tracking-[0.3em] text-gray-400">
-            {product.category?.title}
-          </span>
+          {/* <span className="mb-4 text-sm uppercase tracking-[0.3em] text-gray-400">
+            {product.category.title}
+          </span> */}
 
           <H2>
             <span className="text-primary">{product.title}</span>

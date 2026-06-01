@@ -40,14 +40,17 @@ const CartDrawer = () => {
 
       {/* drawer */}
       <div
-        className={`absolute right-0 top-0 h-full w-[420px] bg-white flex flex-col shadow-2xl transition-transform ${
+        className={`absolute right-0 top-0 h-full w-[420px] bg-white  flex flex-col shadow-2xl transition-transform ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
         {/* header */}
-        <div className="flex items-center justify-between border-b px-5 py-4">
-          <h2 className="text-lg font-semibold">Your Cart</h2>
-          <button onClick={closeCart}>
+        <div className="flex items-center justify-between  cursor-pointer border-b px-5 py-4">
+          <h2 className="text-2xl font-semibold">Your Cart</h2>
+          <button
+            onClick={closeCart}
+            className="text-gray-500 cursor-pointer hover:text-gray-700 transition"
+          >
             <X size={18} />
           </button>
         </div>
@@ -83,7 +86,10 @@ const CartDrawer = () => {
                   </div>
 
                   {/* remove */}
-                  <button onClick={() => handleRemoveFromCart(item.documentId)}>
+                  <button
+                    onClick={() => handleRemoveFromCart(item.documentId)}
+                    className="text-gray-500 cursor-pointer hover:text-gray-700 transition"
+                  >
                     <X size={18} />
                   </button>
                 </div>
@@ -101,14 +107,14 @@ const CartDrawer = () => {
 
           <Link
             href="/cart"
-            className="block text-center bg-black text-white py-3 rounded-xl"
+            className="block text-center  cursor-pointer bg-black text-white py-3 rounded-xl"
           >
             View Cart
           </Link>
 
           <Link
             href="/checkout"
-            className="block text-center bg-gray-100 py-3 rounded-xl"
+            className="block  cursor-pointer text-center bg-gray-100 py-3 rounded-xl"
           >
             Checkout
           </Link>

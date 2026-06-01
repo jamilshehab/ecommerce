@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { motion, Variants } from "framer-motion";
+import { H2 } from "@/app/components/ui/Typography";
 
 const container = {
   hidden: { opacity: 0 },
@@ -39,12 +40,9 @@ export default function CTA() {
     >
       <div className="max-w-4xl mx-auto text-center space-y-10">
         {/* Headline */}
-        <motion.h2
-          variants={item}
-          className="text-4xl md:text-6xl font-extrabold tracking-tight"
-        >
-          Discover SELF
-        </motion.h2>
+        <H2>
+          <span className="text-white">Discover SELF</span>
+        </H2>
 
         {/* Subtext */}
         <motion.p

@@ -1,8 +1,7 @@
 import ProductCard from "@/app/components/products/ProductCard";
 import { getCategories } from "@/app/lib/services/category";
 import { getProductsByCategory } from "@/app/lib/services/products";
-import Link from "next/link";
-
+ 
 const ShopSection = async ({ searchParams }: any) => {
   const category = searchParams?.category || "all";
 

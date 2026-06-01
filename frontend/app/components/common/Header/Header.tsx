@@ -91,7 +91,7 @@ const Header = () => {
             <div className="ml-auto flex items-center">
               <button
                 onClick={openCart}
-                className="relative text-black transition hover:opacity-60"
+                className="relative cursor-pointer text-black transition hover:opacity-60"
               >
                 <AiOutlineShoppingCart className="text-[22px]" />
 

@@ -119,3 +119,10 @@ html {
 .zoom-strong {
   animation: slowZoom 11s ease-in-out forwards;
 }
+p {
+  line-height: 1.8;
+  font-size: 18px !important;
+}
+h3 span {
+  color: gray !important;
+}

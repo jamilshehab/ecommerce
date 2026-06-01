@@ -14,5 +14,5 @@ export default function CustomImage({
   const safeSrc =
     typeof src === "string" && src.trim().length > 0 ? src : fallbackSrc;
 
-  return <Image {...props} src={safeSrc} unoptimized />;
+  return <Image {...props} src={safeSrc} />;
 }

@@ -6,6 +6,7 @@ import {
   HiOutlineChartBar,
 } from "react-icons/hi2";
 import Link from "next/link";
+import { H2, H3 } from "../components/ui/Typography";
 export default function FranchisePage() {
   return (
     <main className="  text-zinc-900 overflow-hidden">
@@ -19,9 +20,13 @@ export default function FranchisePage() {
               SELF Franchise Opportunity
             </span>
 
-            <h1 className="mt-8 text-4xl md:text-5xl lg:text-7xl font-black leading-tight">
-              Build a<span className="block">SELF Franchise</span>
-            </h1>
+            <div className="mt-4">
+              <H2>
+                <span className="text-primary">
+                  Build a<span className="block">SELF Franchise</span>
+                </span>
+              </H2>
+            </div>
 
             <p className="mt-6 md:mt-8 text-base md:text-lg text-zinc-600 leading-relaxed max-w-xl">
               Join a growing premium lifestyle brand and bring SELF to your
@@ -78,13 +83,14 @@ export default function FranchisePage() {
       {/* WHY SELF */}
       <section className="py-20 md:py-28 px-6 bg-light">
         <div className="max-w-7xl mx-auto text-center">
-          <span className="text-primary font-semibold tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm">
-            Why SELF
-          </span>
-
-          <h2 className="mt-5 text-3xl md:text-4xl lg:text-5xl font-black">
-            A Brand Built for Scale
-          </h2>
+          <H3>
+            <span className="text-gray-400">Why SELF</span>
+          </H3>
+          <div className="mt-4">
+            <H2>
+              <span className="primary">A Proven Model for Growth</span>
+            </H2>
+          </div>
 
           <p className="mt-6 text-zinc-600 max-w-2xl mx-auto leading-relaxed text-base md:text-lg">
             SELF is designed as a modern premium lifestyle brand with strong
@@ -185,22 +191,25 @@ export default function FranchisePage() {
       {/* CTA */}
       <section className="py-20 md:py-28 px-6 bg-white">
         <div className="max-w-5xl mx-auto rounded-[3rem] bg-black text-white p-8 md:p-16 text-center">
-          <span className="uppercase tracking-[0.15em] md:tracking-[0.3em] text-sm text-zinc-400">
+          <span className="uppercase tracking-[0.3em] text-sm text-zinc-400">
             Start Your Journey
           </span>
 
           <h2 className="mt-6 text-3xl md:text-5xl lg:text-6xl font-black leading-tight">
-            Bring SELF To Your City
+            Ready To Grow With SELF?
           </h2>
 
           <p className="mt-6 text-zinc-400 max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
-            Partner with us and become part of a growing premium lifestyle brand
-            built for the future of retail.
+            We’re always looking for ambitious people ready to contribute,
+            innovate, and create meaningful experiences.
           </p>
 
-          <button className="mt-8 md:mt-10 px-6 py-3 md:px-10 md:py-5 rounded-2xl bg-white text-black font-semibold hover:scale-[1.03] transition">
+          <Link
+            href="mailto:careers@self.com"
+            className="border px-5 py-3  my-7 rounded-4xl border-black text-black bg-white  transition inline-block"
+          >
             Apply Now
-          </button>
+          </Link>
         </div>
       </section>
     </main>

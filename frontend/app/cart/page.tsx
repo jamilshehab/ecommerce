@@ -5,7 +5,9 @@ export default function Cart() {
   return (
     <main className="">
       <Breadcrumb items={[{ label: "Cart" }]} />
-      <CartSection />
+      <section className="bg-white">
+        <CartSection />
+      </section>
     </main>
   );
 }

@@ -76,9 +76,6 @@ const ProductCard = ({ product, onQuickView }: ProductCardProps) => {
               onClick={(e) => {
                 e.preventDefault();
 
-                console.log("🟢 CLICK PRODUCT:", product);
-                console.log("🟢 PRODUCT ID:", product.id, typeof product.id);
-
                 handleAddToCart(e);
               }}
               className="rounded-full bg-white/90 p-3 shadow-lg backdrop-blur transition hover:scale-110 cursor-pointer disabled:cursor-not-allowed disabled:bg-gray-300"

@@ -1,20 +1,17 @@
-export async function createSubscribe(email: string) {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_STRAPI_URL}/api/subscribes`,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        data: { email },
-      }),
+export async function createSubscribe(phone_number: string) {
+  const response = await fetch("/api/subscribe", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
     },
-  );
+    body: JSON.stringify({
+      phone_number,
+    }),
+  });
 
-  if (!res.ok) {
+  if (!response.ok) {
     throw new Error("Subscribe failed");
   }
 
-  return res.json();
+  return response.json();
 }

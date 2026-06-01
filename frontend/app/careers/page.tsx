@@ -5,6 +5,7 @@ import {
   HiOutlineRocketLaunch,
   HiOutlineSparkles,
 } from "react-icons/hi2";
+import { H2 } from "../components/ui/Typography";
 
 export default function CareersPage() {
   const jobs = [
@@ -159,9 +160,9 @@ export default function CareersPage() {
                 Careers
               </span>
 
-              <h2 className="mt-4 text-3xl md:text-4xl lg:text-5xl font-black">
-                Open Positions
-              </h2>
+              <H2>
+                <span className="text-primary">Open Positions</span>
+              </H2>
             </div>
 
             <p className="text-zinc-600 max-w-lg leading-relaxed text-sm md:text-base">
@@ -199,9 +200,9 @@ export default function CareersPage() {
 
                   <Link
                     href={`/careers/${job.title}/apply`}
-                    className="border px-5 py-3 rounded-4xl border-slate-50 text-white  bg-black hover:text-black hover:bg-white transition inline-block"
+                    className="border px-5 py-3 rounded-4xl border-black text-black hover:bg-black hover:text-white transition inline-block"
                   >
-                    View Role →
+                    View Role
                   </Link>
                 </div>
               </div>
@@ -230,7 +231,7 @@ export default function CareersPage() {
             href="mailto:careers@self.com"
             className="border px-5 py-3  my-7 rounded-4xl border-black text-black bg-white  transition inline-block"
           >
-            careers@self.com
+            Apply Now
           </Link>
         </div>
       </section>

@@ -15,7 +15,7 @@ type BreadcrumbProps = {
 export default function Breadcrumb({ items = [] }: BreadcrumbProps) {
   return (
     <nav className="    bg-secondary text-sm text-gray-500 flex-wrap gap-1">
-      <div className="flex items-center mt-20  container relative mx-auto max-w-6xl py-10 px-4">
+      <div className="flex items-center mt-35  container relative mx-auto max-w-6xl py-10 px-4">
         <Link href="/" className="hover:text-black transition-colors">
           Home
         </Link>

@@ -23,7 +23,7 @@ const FeaturedProductsClient = ({ initialProducts }: Props) => {
         <div className="flex items-center justify-center mt-16">
           <Link
             href="/shop"
-            className="text-lg font-medium text-black hover:underline"
+            className="border px-5 py-3 rounded-4xl border-black text-black hover:bg-black hover:text-white transition inline-block"
           >
             View All Products
           </Link>

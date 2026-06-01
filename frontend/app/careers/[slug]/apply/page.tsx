@@ -1,5 +1,6 @@
 import Apply from "@/app/components/Apply";
 import Breadcrumb from "@/app/components/common/BreadCrumb";
+import { H2, H3 } from "@/app/components/ui/Typography";
 
 export default function ApplyPage({ params }: { params?: { slug?: string } }) {
   const slug = params?.slug ?? "";
@@ -14,19 +15,23 @@ export default function ApplyPage({ params }: { params?: { slug?: string } }) {
       />
       <section className="py-20 bg-light">
         <div className="max-w-6xl   mx-auto container relative ">
-          <p className="text-xs tracking-[0.35em] uppercase text-zinc-500">
-            Careers · Hiring
-          </p>
+          <H3>
+            <span className="text-gray-400">Careers · Hiring</span>
+          </H3>
 
-          <h1 className="mt-4 text-5xl font-light tracking-tight">
-            HR & Sales Executive
-          </h1>
+          <div className="mt-4">
+            <H2>
+              <span className="text-primary">HR & Sales Executive</span>
+            </H2>
+          </div>
 
-          <p className="mt-4 text-zinc-600 text-lg leading-relaxed max-w-xl">
-            We’re looking for a driven HR & Sales professional to help us grow
-            relationships, manage talent, and represent our brand with clarity
-            and confidence.
-          </p>
+          <div className="mt-4">
+            <p className="mt-4 text-zinc-600 leading-8">
+              We’re looking for a driven HR & Sales professional to help us grow
+              relationships, manage talent, and represent our brand with clarity
+              and confidence.
+            </p>
+          </div>
 
           {/* META */}
           <div className="mt-8 flex flex-wrap gap-2 text-sm">
@@ -44,9 +49,9 @@ export default function ApplyPage({ params }: { params?: { slug?: string } }) {
           {/* CONTENT */}
           <div className="mt-14 space-y-10">
             <div>
-              <h2 className="text-xs tracking-[0.25em] uppercase text-zinc-500">
-                About
-              </h2>
+              <H3>
+                <span className="text-gray-400">About</span>
+              </H3>
               <p className="mt-4 text-zinc-600 leading-8">
                 This role blends people management and client acquisition.
                 You’ll be responsible for building strong internal culture while
@@ -55,9 +60,9 @@ export default function ApplyPage({ params }: { params?: { slug?: string } }) {
             </div>
 
             <div>
-              <h2 className="text-xs tracking-[0.25em] uppercase text-zinc-500">
-                Responsibilities
-              </h2>
+              <H3>
+                <span className="text-gray-400">Responsibilities</span>
+              </H3>
               <ul className="mt-4 space-y-3 text-zinc-600">
                 <li>• Manage recruitment and onboarding processes</li>
                 <li>• Build and maintain client relationships</li>
@@ -67,15 +72,17 @@ export default function ApplyPage({ params }: { params?: { slug?: string } }) {
             </div>
 
             <div>
-              <h2 className="text-xs tracking-[0.25em] uppercase text-zinc-500">
-                Requirements
-              </h2>
-              <ul className="mt-4 space-y-3 text-zinc-600">
-                <li>• 2+ years in HR or Sales</li>
-                <li>• Strong communication skills</li>
-                <li>• Professional negotiation & presentation skills</li>
-                <li>• Fluent in English & Arabic preferred</li>
-              </ul>
+              <H3>
+                <span className="text-gray-400">Qualifications</span>
+              </H3>
+              <div className="mt-4">
+                <ul className=" space-y-3 text-zinc-600">
+                  <li>• 2+ years in HR or Sales</li>
+                  <li>• Strong communication skills</li>
+                  <li>• Professional negotiation & presentation skills</li>
+                  <li>• Fluent in English & Arabic preferred</li>
+                </ul>
+              </div>
             </div>
           </div>
 

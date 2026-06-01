@@ -83,10 +83,28 @@ export type ProductCardProps = {
 
 export type Category = {
   id: number;
-  title: string;
-  slug?: string;
-  image?: string;
-  backgroundColor?: string;
-  subtitle: string;
-  linkTitle: string;
+  documentId: string;
+  name: string;
+  slug: string;
+
+  subtitle: string | null;
+  backgroundColor: string | null;
+  linkTitle: string | null;
+
+  image: CategoryImage | null;
+
+  products: any[]; // you can refine later
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
+};
+export type CategoryImage = {
+  id: number;
+  documentId: string;
+  name: string;
+  alternativeText: string | null;
+  caption: string | null;
+  width: number;
+  height: number;
+  url: string;
 };

@@ -4,16 +4,16 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { createSubscribe } from "@/app/lib/services/subscribe";
 import { toast } from "react-toastify";
+import PhoneNumberInput from "./PhoneInput";
+import { H2, H3 } from "../ui/Typography";
+
 export default function SubscribePopup() {
   const [open, setOpen] = useState(false);
-  const [email, setEmail] = useState("");
+  const [phone_number, setPhoneNumber] = useState("");
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setOpen(true);
-    }, 1200);
-
+    const timer = setTimeout(() => setOpen(true), 1200);
     return () => clearTimeout(timer);
   }, []);
 
@@ -22,15 +22,14 @@ export default function SubscribePopup() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!email) return alert("Email is required");
+    if (!phone_number) return toast.error("Phone number is required");
 
     try {
       setLoading(true);
+      await createSubscribe(phone_number);
 
-      await createSubscribe(email);
       toast.success("Subscribed successfully 🎉");
-
-      setEmail("");
+      setPhoneNumber("");
       setOpen(false);
     } catch (err) {
       console.error("Subscribe Error:", err);
@@ -52,45 +51,54 @@ export default function SubscribePopup() {
 
       {/* Modal */}
       <div className="relative w-[92%] max-w-4xl bg-white/90 backdrop-blur-xl rounded-3xl shadow-2xl overflow-hidden grid md:grid-cols-2">
+        {/* Close button */}
+        <button
+          onClick={closeModal}
+          className="absolute cursor-pointer top-4 right-4 z-10 text-slate-600 hover:text-black transition text-lg"
+        >
+          ✕
+        </button>
+
         {/* Image Side */}
         <div className="hidden md:block relative">
           <Image
             src="/images/subscribe.jpeg"
-            height={500}
-            width={500}
+            fill
             alt="skincare"
             className="object-cover"
           />
-
           <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
         </div>
 
         {/* Content Side */}
-        <div className="p-8 md:p-12 relative">
-          {/* Close button */}
-          <button
-            onClick={closeModal}
-            className="absolute cursor-pointer top-5 right-5 text-slate-700 hover:text-black transition"
-          >
-            ✕
-          </button>
+        <div className="p-8 md:p-12 flex flex-col justify-center">
+          {/* Header */}
+          <H3>
+            <span className="text-gray-400">Skincare Rituals</span>
+          </H3>
 
-          {/* Text */}
-          <p className="text-xs tracking-[0.3em] uppercase text-slate-700">
-            Skincare Rituals
-          </p>
+          <div className="mt-4">
+            <H2>
+              <span className="primary"> Elevate your skincare ritual</span>
+            </H2>
+          </div>
 
-          <h1 className="text-3xl text-black md:text-4xl  font-extrabold mt-3 leading-tight">
-            Elevate your skincare ritual
-          </h1>
-
-          <p className="text-gray-600 mt-4 text-sm leading-relaxed">
+          <p className="text-sm text-gray-600 mt-3">
             Join our exclusive community and receive curated skincare insights,
             early access to drops, and private offers crafted for radiant skin.
           </p>
-         
+
           {/* Form */}
-          <form onSubmit={handleSubmit} className="mt-8 flex flex-col gap-3">
+          <form onSubmit={handleSubmit} className="mt-6 flex flex-col gap-4">
+            <PhoneNumberInput
+              value={phone_number}
+              onChange={(val) => setPhoneNumber(val ?? "")}
+              country="LB"
+              international
+              placeholder="Phone Number *"
+              className="w-full px-4 py-4 rounded-xl border border-gray-200 bg-white/70 text-black placeholder:text-gray-400 outline-none focus:border-black focus:ring-2 focus:ring-black/10 transition"
+            />
+
             <button
               type="submit"
               disabled={loading}
