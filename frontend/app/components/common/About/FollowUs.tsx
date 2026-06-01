@@ -41,7 +41,7 @@ export default function InstagramSection() {
           </div>
 
           <Link
-            href="https://www.instagram.com/self.ldn/"
+            href="https://www.instagram.com/  SELF.ldn/"
             target="_blank"
             className="group inline-flex items-center gap-3 text-sm border border-black/10 rounded-full px-6 py-3 hover:bg-black hover:text-white transition-all duration-300 w-fit"
           >
@@ -77,7 +77,7 @@ export default function InstagramSection() {
             <SwiperSlide key={index}>
               {/* WRAPPED IN LINK */}
               <Link
-                href="https://www.instagram.com/self.ldn/"
+                href="https://www.instagram.com/  SELF.ldn/"
                 target="_blank"
                 className="block"
               >

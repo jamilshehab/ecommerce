@@ -5,7 +5,7 @@ import {
   HiOutlineRocketLaunch,
   HiOutlineSparkles,
 } from "react-icons/hi2";
-import { H2 } from "../components/ui/Typography";
+import { H2, H3 } from "../components/ui/Typography";
 
 export default function CareersPage() {
   const jobs = [
@@ -21,7 +21,7 @@ export default function CareersPage() {
       type: "Remote",
       location: "Hybrid",
       description:
-        "Create engaging visual and social content aligned with the SELF brand identity and audience growth strategy.",
+        "Create engaging visual and social content aligned with the   SELF brand identity and audience growth strategy.",
     },
     {
       title: "Customer Experience Associate",
@@ -44,10 +44,13 @@ export default function CareersPage() {
               Join The SELF Team
             </span>
 
-            <h1 className="mt-8 text-4xl md:text-5xl lg:text-7xl font-black leading-tight tracking-tight">
-              Build Your Future
-              <span className="block text-black">With SELF</span>
-            </h1>
+            <div className="my-4">
+              <H2>
+                <span className="text-primary">
+                  Build Your Future With SELF
+                </span>
+              </H2>
+            </div>
 
             <p className="mt-6 md:mt-8 text-base md:text-lg text-zinc-600 leading-relaxed max-w-xl">
               At SELF, we believe premium brands are built by passionate people.
@@ -76,7 +79,7 @@ export default function CareersPage() {
           <div className="rounded-[2rem] border border-zinc-200 bg-white shadow-xl p-6 md:p-10">
             <div className="grid grid-cols-2 gap-5">
               <div className="rounded-3xl bg-zinc-900 text-white p-5 md:p-6">
-                <p className="text-sm text-zinc-300">Team Members</p>
+                <p className="text-sm !text-white">Team Members</p>
                 <h3 className="mt-3 text-3xl md:text-4xl font-black">25+</h3>
               </div>
 
@@ -88,13 +91,15 @@ export default function CareersPage() {
               </div>
 
               <div className="col-span-2 rounded-3xl border border-zinc-200 bg-white p-6 md:p-8">
-                <p className="uppercase tracking-[0.3em] text-xs text-zinc-500">
-                  Why Join SELF
-                </p>
+                <H3>
+                  <span className=" ">Why Join SELF</span>
+                </H3>
 
-                <h3 className="mt-4 text-xl md:text-2xl font-semibold leading-relaxed text-zinc-900">
-                  A premium environment where creativity meets opportunity.
-                </h3>
+                <div className="my-2">
+                  <p>
+                    A premium environment where creativity meets opportunity.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -214,11 +219,11 @@ export default function CareersPage() {
       {/* CTA */}
       <section className="py-20 md:py-28 px-6 bg-white">
         <div className="max-w-5xl mx-auto rounded-[3rem] bg-black text-white p-8 md:p-16 text-center">
-          <span className="uppercase tracking-[0.3em] text-sm text-zinc-400">
-            Start Your Journey
-          </span>
+          <H3>
+            <span className="text-white"> Start Your Journey</span>
+          </H3>
 
-          <h2 className="mt-6 text-3xl md:text-5xl lg:text-6xl font-black leading-tight">
+          <h2 className="mt-6 text-3xl md:text-5xl lg:text-6xl font-black leading-tight ">
             Ready To Grow With SELF?
           </h2>
 
@@ -228,7 +233,7 @@ export default function CareersPage() {
           </p>
 
           <Link
-            href="mailto:careers@self.com"
+            href="mailto:careers@  SELF.com"
             className="border px-5 py-3  my-7 rounded-4xl border-black text-black bg-white  transition inline-block"
           >
             Apply Now

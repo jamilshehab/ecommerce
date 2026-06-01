@@ -26,7 +26,7 @@ const Mission = () => {
               </H2>
             </div>
             <p className="mt-6 text-gray-600 leading-relaxed">
-              To create a modern lifestyle brand that empowers self-expression
+              To create a modern lifestyle brand that empowers SELF-expression
               through culture, fashion, and identity. Every piece we build
               reflects intention, clarity, and personal meaning.
             </p>

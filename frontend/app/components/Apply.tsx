@@ -63,7 +63,7 @@ const Apply = () => {
     }
 
     if (!form.message || form.message.length < 10) {
-      newErrors.message = "Tell us a bit more about yourself";
+      newErrors.message = "Tell us a bit more about your  SELF";
     }
 
     setErrors(newErrors);
@@ -105,7 +105,7 @@ const Apply = () => {
 
           <div className="mt-4">
             <p className="mt-6 text-zinc-600 max-w-2xl mx-auto leading-relaxed">
-              Upload your CV and tell us more about yourself. We’re always
+              Upload your CV and tell us more about your SELF. We’re always
               looking for creative and ambitious people.
             </p>
           </div>
@@ -216,7 +216,7 @@ const Apply = () => {
             <textarea
               name="message"
               rows={5}
-              placeholder="Tell us about yourself..."
+              placeholder="Tell us about your  SELF..."
               value={form.message}
               onChange={handleChange}
               className="w-full border-b border-zinc-300 bg-transparent py-4 focus:outline-none focus:border-black transition resize-none"

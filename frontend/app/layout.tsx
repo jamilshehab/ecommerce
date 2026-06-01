@@ -18,8 +18,8 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Luxury Skincare & Beauty Products | SELF Lebanon",
-  description: "Discover luxury skincare and beauty products at SELF Lebanon",
+  title: "Luxury Skincare & Beauty Products |   SELF Lebanon",
+  description: "Discover luxury skincare and beauty products at   SELF Lebanon",
 };
 export default async function RootLayout({
   children,

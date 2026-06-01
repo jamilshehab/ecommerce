@@ -25,7 +25,7 @@ export default function Testimonials() {
   const [active, setActive] = useState(0);
 
   return (
-    <section className="py-40 px-6 md:px-20 bg-secondary">
+    <section className="py-20 px-6 md:px-20 bg-secondary">
       <div className="max-w-4xl mx-auto text-center">
         {/* Title */}
         <h2 className="text-4xl md:text-5xl text-black font-extrabold mb-16">

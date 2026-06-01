@@ -20,13 +20,13 @@ export default function Contact() {
                   Email
                 </p>
                 <div className="mt-4">
-                  <Link href="mailto:hello@selflondon.co">
-                    hello@selflondon.co
+                  <Link href="mailto:hello@  SELFlondon.co">
+                    hello@ SELFlondon.co
                   </Link>
                 </div>
                 <div className="mt-4">
-                  <Link href="mailto:operation@selflondon.co">
-                    operation@selflondon.co
+                  <Link href="mailto:operation@  SELFlondon.co">
+                    operation@ SELFlondon.co
                   </Link>
                 </div>
               </div>

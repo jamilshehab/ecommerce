@@ -12,7 +12,7 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
         {/* Brand */}
         <div>
-          <h3 className="text-2xl font-extrabold tracking-tight">SELF</h3>
+          <h3 className="text-2xl font-extrabold tracking-tight"> SELF</h3>
 
           <p className="mt-4 text-sm leading-relaxed text-white/60 max-w-xs">
             A refined approach to beauty and skincare designed to help you
@@ -47,18 +47,18 @@ export default function Footer() {
 
           <div className="space-y-3 text-sm">
             <Link
-              href="mailto:hello@self.com"
+              href="mailto:hello@  SELF.com"
               className="text-white  transition-colors duration-200 hover:text-white"
             >
-              hello@self.com
+              hello@ SELF.com
             </Link>
           </div>
           <div className="space-y-3 my-4 text-sm">
             <Link
-              href="mailto:operation@selflondon.co"
+              href="mailto:operation@  SELFlondon.co"
               className="text-white  transition-colors duration-200 hover:text-white"
             >
-              operation@selflondon.co
+              operation@ SELFlondon.co
             </Link>
           </div>
         </div>

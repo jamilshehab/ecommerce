@@ -5,7 +5,7 @@ import { FaInstagram } from "react-icons/fa6";
 const Instagram = () => {
   return (
     <Link
-      href="https://www.instagram.com/self.ldn/"
+      href="https://www.instagram.com/  SELF.ldn/"
       target="_blank"
       rel="noopener noreferrer"
       className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50

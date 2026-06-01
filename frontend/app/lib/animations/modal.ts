@@ -1,7 +1,7 @@
 import { Variants } from "framer-motion";
 
 export const rain = Array.from({ length: 18 });
-// 🌧️ SELF rainy QUICK VIEW ANIMATION
+// 🌧️   SELF rainy QUICK VIEW ANIMATION
 export const modalBackdrop = {
   hidden: { opacity: 0 },
   show: { opacity: 1 },

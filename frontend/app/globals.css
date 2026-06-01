@@ -137,6 +137,9 @@ footer p {
   font-weight: light !important;
 }
 
+footer a {
+  color: #fff !important;
+}
 @keyframes scroll {
   0% {
     transform: translateX(0);
@@ -159,4 +162,8 @@ footer p {
 }
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
+}
+
+.cta-section p {
+  color: #fff !important;
 }

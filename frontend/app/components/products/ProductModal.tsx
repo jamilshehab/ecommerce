@@ -41,10 +41,10 @@ const ProductModal = ({ selected, onClose }: ProductModalProps) => {
       animate="show"
       exit="exit"
     >
-      {/* 🌧️ SELF RAIN BACKGROUND */}
+      {/* 🌧️   SELF RAIN BACKGROUND */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-[60]">
         {rain.map((_, i) => {
-          const letters = ["SELF", "SELF", "SELF", "SELF"];
+          const letters = ["  SELF", "  SELF", "  SELF", "  SELF"];
           const letter = letters[i % letters.length];
           const left = (i / rain.length) * 100;
 

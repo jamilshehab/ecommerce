@@ -52,7 +52,7 @@ const Header = () => {
               <Link href="/" className="flex items-center shrink-0">
                 <Image
                   src="/images/logo/logo.png"
-                  alt="SELF Logo"
+                  alt="  SELF Logo"
                   width={95}
                   height={40}
                   className="object-contain"

@@ -31,7 +31,7 @@ const item: Variants = {
 
 export default function BrandStory() {
   return (
-    <section className="py-32 px-6 md:px-20 bg-white">
+    <section className="py-20 px-6 md:px-20 bg-white">
       <motion.div
         variants={container}
         initial="hidden"
@@ -49,7 +49,7 @@ export default function BrandStory() {
         {/* Main title */}
         <motion.div variants={item}>
           <H2>
-            <span className="text-primary">
+            <span className="text-primary -mt-2">
               Beauty is not created it is revealed
             </span>
           </H2>

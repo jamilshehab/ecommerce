@@ -32,7 +32,7 @@ const item: Variants = {
 export default function CTA() {
   return (
     <motion.section
-      className="py-20 md:py-40 px-6 md:px-20 bg-black text-white"
+      className="cta-section py-20  md:py-40 px-6 md:px-20 bg-black text-white"
       variants={container}
       initial="hidden"
       whileInView="show"
@@ -47,7 +47,7 @@ export default function CTA() {
         {/* Subtext */}
         <motion.p
           variants={item}
-          className="text-white/60 text-sm md:text-base leading-relaxed max-w-xl mx-auto"
+          className=" !text-white text-sm md:text-base leading-relaxed max-w-xl mx-auto"
         >
           Beauty is not added. It is revealed. Begin your ritual with formulas
           designed to restore your natural essence.

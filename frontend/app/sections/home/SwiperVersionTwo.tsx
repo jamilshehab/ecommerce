@@ -44,7 +44,7 @@ export default function HeroSwiper() {
           <div className="absolute bottom-6 md:bottom-10 left-0 right-0 z-[2] flex justify-center">
             <Image
               src="/images/logo/logo.png"
-              alt="SELF Logo"
+              alt="  SELF Logo"
               width={420}
               height={140}
               className="
@@ -121,7 +121,7 @@ function Slide({
         <div className="absolute bottom-6 md:bottom-10 left-0 right-0 z-[2] flex justify-center">
           <Image
             src="/images/logo/logo.png"
-            alt="SELF Logo"
+            alt="  SELF Logo"
             width={420}
             height={140}
             className="

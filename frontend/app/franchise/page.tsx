@@ -23,7 +23,7 @@ export default function FranchisePage() {
             <div className="mt-4">
               <H2>
                 <span className="text-primary">
-                  Build a<span className="block">SELF Franchise</span>
+                  Build a<span className="block"> SELF Franchise</span>
                 </span>
               </H2>
             </div>
@@ -55,7 +55,7 @@ export default function FranchisePage() {
           <div className="rounded-[2rem] border border-zinc-200 bg-white shadow-xl p-6 md:p-10">
             <div className="grid grid-cols-2 gap-5">
               <div className="rounded-3xl bg-zinc-900 text-white p-5 md:p-6">
-                <p className="text-sm text-zinc-300">Global Vision</p>
+                <p className="text-sm !text-white">Global Vision</p>
                 <h3 className="mt-3 text-3xl md:text-4xl font-black">2026+</h3>
               </div>
 
@@ -71,16 +71,16 @@ export default function FranchisePage() {
                   Franchise Model
                 </p>
 
-                <h3 className="mt-4 text-xl md:text-2xl font-semibold leading-relaxed">
+                <p>
                   A scalable business system built for modern lifestyle retail.
-                </h3>
+                </p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* WHY SELF */}
+      {/* WHY   SELF */}
       <section className="py-20 md:py-28 px-6 bg-light">
         <div className="max-w-7xl mx-auto text-center">
           <H3>
@@ -123,7 +123,7 @@ export default function FranchisePage() {
                   {item.icon}
                 </div>
 
-                <h3 className="mt-6 md:mt-8 text-xl md:text-2xl font-bold">
+                <h3 className="mt-6 md:mt-8 text-xl md:text-2xl  ">
                   {item.title}
                 </h3>
 
@@ -140,9 +140,9 @@ export default function FranchisePage() {
       <section className="py-20 md:py-28 px-6 bg-zinc-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center">
-            <span className="text-zinc-500 font-semibold tracking-[0.15em] md:tracking-[0.3em] uppercase text-sm">
-              Process
-            </span>
+            <H3>
+              <span className="text-gray-400">Process</span>
+            </H3>
 
             <h2 className="mt-5 text-3xl md:text-4xl lg:text-5xl font-black">
               How It Works
@@ -171,11 +171,11 @@ export default function FranchisePage() {
                 key={i}
                 className="rounded-[2rem] bg-white border border-zinc-200 p-6 md:p-10 shadow-sm"
               >
-                <p className="text-zinc-400 font-bold text-sm tracking-[0.15em] md:tracking-[0.2em]">
-                  {item.step}
-                </p>
+                <H3>
+                  <span className="text-gray-400">{item.step}</span>
+                </H3>
 
-                <h3 className="mt-5 md:mt-6 text-xl md:text-2xl font-bold">
+                <h3 className="mt-5 md:mt-6 text-xl md:text-2xl  ">
                   {item.title}
                 </h3>
 
@@ -191,21 +191,21 @@ export default function FranchisePage() {
       {/* CTA */}
       <section className="py-20 md:py-28 px-6 bg-white">
         <div className="max-w-5xl mx-auto rounded-[3rem] bg-black text-white p-8 md:p-16 text-center">
-          <span className="uppercase tracking-[0.3em] text-sm text-zinc-400">
-            Start Your Journey
-          </span>
+          <H3>
+            <span className="text-white"> Start Your Journey</span>
+          </H3>
 
-          <h2 className="mt-6 text-3xl md:text-5xl lg:text-6xl font-black leading-tight">
+          <h2 className="mt-6 text-3xl md:text-5xl lg:text-6xl font-black leading-tight ">
             Ready To Grow With SELF?
           </h2>
 
-          <p className="mt-6 text-zinc-400 max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
+          <p className="mt-6 !text-white max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
             We’re always looking for ambitious people ready to contribute,
             innovate, and create meaningful experiences.
           </p>
 
           <Link
-            href="mailto:careers@self.com"
+            href="mailto:careers@  SELF.com"
             className="border px-5 py-3  my-7 rounded-4xl border-black text-black bg-white  transition inline-block"
           >
             Apply Now
