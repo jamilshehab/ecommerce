@@ -47,18 +47,18 @@ export default function Footer() {
 
           <div className="space-y-3 text-sm">
             <Link
-              href="mailto:hello@  SELF.com"
+              href="mailto:hello@self.co"
               className="text-white  transition-colors duration-200 hover:text-white"
             >
-              hello@ SELF.com
+              hello@self.co
             </Link>
           </div>
           <div className="space-y-3 my-4 text-sm">
             <Link
-              href="mailto:operation@  SELFlondon.co"
+              href="mailto:operation@selflondon.co"
               className="text-white  transition-colors duration-200 hover:text-white"
             >
-              operation@ SELFlondon.co
+              operation@selflondon.co
             </Link>
           </div>
         </div>
