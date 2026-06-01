@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import PhoneNumberInput from "./common/PhoneInput";
+import { H2 } from "./ui/Typography";
 
 const ContactForm = () => {
   const [form, setForm] = useState({
@@ -74,18 +75,22 @@ const ContactForm = () => {
   };
 
   const inputClass =
-    "w-full bg-transparent border-b border-gray-300 py-3 text-sm focus:outline-none focus:border-black transition";
+    "w-full cursor-pointer bg-transparent border-b border-gray-300 py-3 text-sm focus:outline-none focus:border-black transition";
 
   return (
     <form onSubmit={handleSubmit} className="space-y-10 max-w-2xl  ">
       {/* HEADER */}
-      <div className="text-center space-y-2">
-        <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight">
-          Contact Us
-        </h2>
-        <p className="text-gray-500 text-sm">
-          Fill out the form below and we’ll get back to you shortly.
-        </p>
+      <div className="">
+        <div className="my-4">
+          <H2>
+            <span className="text-primary">Get in Touch</span>
+          </H2>
+        </div>
+        <div className=" ">
+          <p className="text-gray-500 text-sm my-2">
+            Fill out the form below and we’ll get back to you shortly.
+          </p>
+        </div>
       </div>
 
       {/* NAME */}

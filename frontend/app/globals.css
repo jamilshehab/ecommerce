@@ -122,7 +122,41 @@ html {
 p {
   line-height: 1.8;
   font-size: 18px !important;
+  color: #4a5565 !important;
+  font-weight: light !important;
+}
+a {
+  font-size: 18px !important;
 }
 h3 span {
   color: gray !important;
+  text-transform: uppercase !important;
+}
+footer p {
+  color: #fff !important;
+  font-weight: light !important;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 25s linear infinite;
+}
+
+.animate-scroll:hover {
+  animation-play-state: paused;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }

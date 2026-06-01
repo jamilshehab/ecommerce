@@ -13,14 +13,17 @@ export default function CategoryNavbar({
 }: {
   categories: Category[];
 }) {
+  // duplicate for seamless loop
+  const looped = [...categories, ...categories];
+
   return (
     <section className="fixed top-[88px] left-0 right-0 z-40 px-4">
       <div className="mx-auto max-w-6xl">
-        <div className="rounded-3xl    px-3 py-3">
-          <div className="flex gap-2 overflow-x-auto whitespace-nowrap scrollbar-hide">
-            {categories.map((category) => (
+        <div className="rounded-3xl px-3 py-3 overflow-hidden">
+          <div className="flex w-max gap-2 animate-scroll whitespace-nowrap">
+            {looped.map((category, index) => (
               <Link
-                key={category.id}
+                key={`${category.id}-${index}`}
                 href={`/shop/${category.slug}`}
                 className="
                   flex-shrink-0

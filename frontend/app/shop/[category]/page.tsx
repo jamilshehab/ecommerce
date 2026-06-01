@@ -31,7 +31,9 @@ export default async function Page({ params, searchParams }: any) {
           },
         ]}
       />
-      <ClientShopSection products={products} pageCount={pageCount} />
+      <section className="bg-white">
+        <ClientShopSection products={products} pageCount={pageCount} />
+      </section>
     </main>
   );
 }

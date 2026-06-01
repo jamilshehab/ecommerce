@@ -19,12 +19,16 @@ export default function Contact() {
                 <p className="text-xs tracking-widest text-gray-400 uppercase">
                   Email
                 </p>
-                <Link href="mailto:hello@selflondon.co">
-                  hello@selflondon.co
-                </Link>
-                <Link href="mailto:operation@selflondon.co">
-                  operation@selflondon.co
-                </Link>
+                <div className="mt-4">
+                  <Link href="mailto:hello@selflondon.co">
+                    hello@selflondon.co
+                  </Link>
+                </div>
+                <div className="mt-4">
+                  <Link href="mailto:operation@selflondon.co">
+                    operation@selflondon.co
+                  </Link>
+                </div>
               </div>
 
               {/* OUTLETS */}
@@ -56,10 +60,6 @@ export default function Contact() {
 
             {/* RIGHT FORM (SOFT LUXURY STYLE) */}
             <div className="bg-light rounded-3xl p-10">
-              <h2 className="text-2xl text-slate-700  font-light mb-8">
-                Send a message
-              </h2>
-
               <ContactForm />
             </div>
           </div>
